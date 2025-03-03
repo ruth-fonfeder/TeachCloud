@@ -1,0 +1,6 @@
+@TeachCloud_HostAddress = http://localhost:5012
+
+GET {{TeachCloud_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
