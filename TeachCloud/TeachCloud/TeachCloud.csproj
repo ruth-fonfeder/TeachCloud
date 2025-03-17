@@ -10,4 +10,9 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\TeachCloud.Core\TeachCloud.Core.csproj" />
+    <ProjectReference Include="..\TeachCloud.Data\TeachCloud.Data.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeachCloud", "TeachCloud\TeachCloud.csproj", "{8F0FDB42-52EC-4A3B-9F73-D274FE3E62F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeachCloud", "TeachCloud\TeachCloud.csproj", "{8F0FDB42-52EC-4A3B-9F73-D274FE3E62F3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeachCloud.Core", "TeachCloud.Core\TeachCloud.Core.csproj", "{1971B725-847C-42BE-A7A2-71AA86CD7176}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeachCloud.Data", "TeachCloud.Data\TeachCloud.Data.csproj", "{57EC699D-6517-4719-A470-A97D677EBB4C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{8F0FDB42-52EC-4A3B-9F73-D274FE3E62F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F0FDB42-52EC-4A3B-9F73-D274FE3E62F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F0FDB42-52EC-4A3B-9F73-D274FE3E62F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1971B725-847C-42BE-A7A2-71AA86CD7176}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1971B725-847C-42BE-A7A2-71AA86CD7176}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1971B725-847C-42BE-A7A2-71AA86CD7176}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1971B725-847C-42BE-A7A2-71AA86CD7176}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57EC699D-6517-4719-A470-A97D677EBB4C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57EC699D-6517-4719-A470-A97D677EBB4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57EC699D-6517-4719-A470-A97D677EBB4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57EC699D-6517-4719-A470-A97D677EBB4C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

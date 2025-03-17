@@ -1,0 +1,12 @@
+C:\Users\user1\Desktop\רות\כיתה ו\לימודים\Dotnet\TeachCloudProject\TeachCloud\TeachCloud.Core\bin\Debug\net8.0\TeachCloud.Core.deps.json
+C:\Users\user1\Desktop\רות\כיתה ו\לימודים\Dotnet\TeachCloudProject\TeachCloud\TeachCloud.Core\bin\Debug\net8.0\TeachCloud.Core.dll
+C:\Users\user1\Desktop\רות\כיתה ו\לימודים\Dotnet\TeachCloudProject\TeachCloud\TeachCloud.Core\bin\Debug\net8.0\TeachCloud.Core.pdb
+C:\Users\user1\Desktop\רות\כיתה ו\לימודים\Dotnet\TeachCloudProject\TeachCloud\TeachCloud.Core\obj\Debug\net8.0\TeachCloud.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user1\Desktop\רות\כיתה ו\לימודים\Dotnet\TeachCloudProject\TeachCloud\TeachCloud.Core\obj\Debug\net8.0\TeachCloud.Core.AssemblyInfoInputs.cache
+C:\Users\user1\Desktop\רות\כיתה ו\לימודים\Dotnet\TeachCloudProject\TeachCloud\TeachCloud.Core\obj\Debug\net8.0\TeachCloud.Core.AssemblyInfo.cs
+C:\Users\user1\Desktop\רות\כיתה ו\לימודים\Dotnet\TeachCloudProject\TeachCloud\TeachCloud.Core\obj\Debug\net8.0\TeachCloud.Core.csproj.CoreCompileInputs.cache
+C:\Users\user1\Desktop\רות\כיתה ו\לימודים\Dotnet\TeachCloudProject\TeachCloud\TeachCloud.Core\obj\Debug\net8.0\TeachCloud.Core.sourcelink.json
+C:\Users\user1\Desktop\רות\כיתה ו\לימודים\Dotnet\TeachCloudProject\TeachCloud\TeachCloud.Core\obj\Debug\net8.0\TeachCloud.Core.dll
+C:\Users\user1\Desktop\רות\כיתה ו\לימודים\Dotnet\TeachCloudProject\TeachCloud\TeachCloud.Core\obj\Debug\net8.0\refint\TeachCloud.Core.dll
+C:\Users\user1\Desktop\רות\כיתה ו\לימודים\Dotnet\TeachCloudProject\TeachCloud\TeachCloud.Core\obj\Debug\net8.0\TeachCloud.Core.pdb
+C:\Users\user1\Desktop\רות\כיתה ו\לימודים\Dotnet\TeachCloudProject\TeachCloud\TeachCloud.Core\obj\Debug\net8.0\ref\TeachCloud.Core.dll

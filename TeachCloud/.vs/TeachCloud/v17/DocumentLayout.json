@@ -1,12 +1,249 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\user1\\Desktop\\\u05E8\u05D5\u05EA\\\u05DB\u05D9\u05EA\u05D4 \u05D5\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\\u05E4\u05E8\u05D5\u05D9\u05E7\u05D8 \u05D2\u05DE\u05E8\\TeachCloud\\",
-  "Documents": [],
+  "WorkspaceRootPath": "C:\\Users\\user1\\Desktop\\\u05E8\u05D5\u05EA\\\u05DB\u05D9\u05EA\u05D4 \u05D5\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\Dotnet\\TeachCloudProject\\TeachCloud\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8F0FDB42-52EC-4A3B-9F73-D274FE3E62F3}|TeachCloud\\TeachCloud.csproj|c:\\users\\user1\\desktop\\\u05E8\u05D5\u05EA\\\u05DB\u05D9\u05EA\u05D4 \u05D5\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\dotnet\\teachcloudproject\\teachcloud\\teachcloud\\controllers\\institutioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F0FDB42-52EC-4A3B-9F73-D274FE3E62F3}|TeachCloud\\TeachCloud.csproj|solutionrelative:teachcloud\\controllers\\institutioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57EC699D-6517-4719-A470-A97D677EBB4C}|TeachCloud.Data\\TeachCloud.Data.csproj|c:\\users\\user1\\desktop\\\u05E8\u05D5\u05EA\\\u05DB\u05D9\u05EA\u05D4 \u05D5\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\dotnet\\teachcloudproject\\teachcloud\\teachcloud.data\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{57EC699D-6517-4719-A470-A97D677EBB4C}|TeachCloud.Data\\TeachCloud.Data.csproj|solutionrelative:teachcloud.data\\datacontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1971B725-847C-42BE-A7A2-71AA86CD7176}|TeachCloud.Core\\TeachCloud.Core.csproj|c:\\users\\user1\\desktop\\\u05E8\u05D5\u05EA\\\u05DB\u05D9\u05EA\u05D4 \u05D5\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\dotnet\\teachcloudproject\\teachcloud\\teachcloud.core\\entities\\file.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1971B725-847C-42BE-A7A2-71AA86CD7176}|TeachCloud.Core\\TeachCloud.Core.csproj|solutionrelative:teachcloud.core\\entities\\file.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F0FDB42-52EC-4A3B-9F73-D274FE3E62F3}|TeachCloud\\TeachCloud.csproj|c:\\users\\user1\\desktop\\\u05E8\u05D5\u05EA\\\u05DB\u05D9\u05EA\u05D4 \u05D5\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\dotnet\\teachcloudproject\\teachcloud\\teachcloud\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F0FDB42-52EC-4A3B-9F73-D274FE3E62F3}|TeachCloud\\TeachCloud.csproj|solutionrelative:teachcloud\\controllers\\admincontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8F0FDB42-52EC-4A3B-9F73-D274FE3E62F3}|TeachCloud\\TeachCloud.csproj|c:\\users\\user1\\desktop\\\u05E8\u05D5\u05EA\\\u05DB\u05D9\u05EA\u05D4 \u05D5\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\dotnet\\teachcloudproject\\teachcloud\\teachcloud\\controllers\\coursecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8F0FDB42-52EC-4A3B-9F73-D274FE3E62F3}|TeachCloud\\TeachCloud.csproj|solutionrelative:teachcloud\\controllers\\coursecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1971B725-847C-42BE-A7A2-71AA86CD7176}|TeachCloud.Core\\TeachCloud.Core.csproj|c:\\users\\user1\\desktop\\\u05E8\u05D5\u05EA\\\u05DB\u05D9\u05EA\u05D4 \u05D5\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\dotnet\\teachcloudproject\\teachcloud\\teachcloud.core\\entities\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1971B725-847C-42BE-A7A2-71AA86CD7176}|TeachCloud.Core\\TeachCloud.Core.csproj|solutionrelative:teachcloud.core\\entities\\admin.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{57EC699D-6517-4719-A470-A97D677EBB4C}|TeachCloud.Data\\TeachCloud.Data.csproj|c:\\users\\user1\\desktop\\\u05E8\u05D5\u05EA\\\u05DB\u05D9\u05EA\u05D4 \u05D5\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\dotnet\\teachcloudproject\\teachcloud\\teachcloud.data\\teachcloud.data.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{57EC699D-6517-4719-A470-A97D677EBB4C}|TeachCloud.Data\\TeachCloud.Data.csproj|solutionrelative:teachcloud.data\\teachcloud.data.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1971B725-847C-42BE-A7A2-71AA86CD7176}|TeachCloud.Core\\TeachCloud.Core.csproj|c:\\users\\user1\\desktop\\\u05E8\u05D5\u05EA\\\u05DB\u05D9\u05EA\u05D4 \u05D5\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\dotnet\\teachcloudproject\\teachcloud\\teachcloud.core\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1971B725-847C-42BE-A7A2-71AA86CD7176}|TeachCloud.Core\\TeachCloud.Core.csproj|solutionrelative:teachcloud.core\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1971B725-847C-42BE-A7A2-71AA86CD7176}|TeachCloud.Core\\TeachCloud.Core.csproj|c:\\users\\user1\\desktop\\\u05E8\u05D5\u05EA\\\u05DB\u05D9\u05EA\u05D4 \u05D5\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\dotnet\\teachcloudproject\\teachcloud\\teachcloud.core\\entities\\teacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1971B725-847C-42BE-A7A2-71AA86CD7176}|TeachCloud.Core\\TeachCloud.Core.csproj|solutionrelative:teachcloud.core\\entities\\teacher.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1971B725-847C-42BE-A7A2-71AA86CD7176}|TeachCloud.Core\\TeachCloud.Core.csproj|c:\\users\\user1\\desktop\\\u05E8\u05D5\u05EA\\\u05DB\u05D9\u05EA\u05D4 \u05D5\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\dotnet\\teachcloudproject\\teachcloud\\teachcloud.core\\entities\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1971B725-847C-42BE-A7A2-71AA86CD7176}|TeachCloud.Core\\TeachCloud.Core.csproj|solutionrelative:teachcloud.core\\entities\\student.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1971B725-847C-42BE-A7A2-71AA86CD7176}|TeachCloud.Core\\TeachCloud.Core.csproj|c:\\users\\user1\\desktop\\\u05E8\u05D5\u05EA\\\u05DB\u05D9\u05EA\u05D4 \u05D5\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\dotnet\\teachcloudproject\\teachcloud\\teachcloud.core\\entities\\lesson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1971B725-847C-42BE-A7A2-71AA86CD7176}|TeachCloud.Core\\TeachCloud.Core.csproj|solutionrelative:teachcloud.core\\entities\\lesson.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1971B725-847C-42BE-A7A2-71AA86CD7176}|TeachCloud.Core\\TeachCloud.Core.csproj|c:\\users\\user1\\desktop\\\u05E8\u05D5\u05EA\\\u05DB\u05D9\u05EA\u05D4 \u05D5\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\dotnet\\teachcloudproject\\teachcloud\\teachcloud.core\\entities\\institution.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1971B725-847C-42BE-A7A2-71AA86CD7176}|TeachCloud.Core\\TeachCloud.Core.csproj|solutionrelative:teachcloud.core\\entities\\institution.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1971B725-847C-42BE-A7A2-71AA86CD7176}|TeachCloud.Core\\TeachCloud.Core.csproj|c:\\users\\user1\\desktop\\\u05E8\u05D5\u05EA\\\u05DB\u05D9\u05EA\u05D4 \u05D5\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\dotnet\\teachcloudproject\\teachcloud\\teachcloud.core\\entities\\group.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1971B725-847C-42BE-A7A2-71AA86CD7176}|TeachCloud.Core\\TeachCloud.Core.csproj|solutionrelative:teachcloud.core\\entities\\group.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1971B725-847C-42BE-A7A2-71AA86CD7176}|TeachCloud.Core\\TeachCloud.Core.csproj|c:\\users\\user1\\desktop\\\u05E8\u05D5\u05EA\\\u05DB\u05D9\u05EA\u05D4 \u05D5\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\dotnet\\teachcloudproject\\teachcloud\\teachcloud.core\\entities\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1971B725-847C-42BE-A7A2-71AA86CD7176}|TeachCloud.Core\\TeachCloud.Core.csproj|solutionrelative:teachcloud.core\\entities\\course.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "InstitutionController.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\\u05E8\u05D5\u05EA\\\u05DB\u05D9\u05EA\u05D4 \u05D5\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\Dotnet\\TeachCloudProject\\TeachCloud\\TeachCloud\\Controllers\\InstitutionController.cs",
+              "RelativeDocumentMoniker": "TeachCloud\\Controllers\\InstitutionController.cs",
+              "ToolTip": "C:\\Users\\user1\\Desktop\\\u05E8\u05D5\u05EA\\\u05DB\u05D9\u05EA\u05D4 \u05D5\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\Dotnet\\TeachCloudProject\\TeachCloud\\TeachCloud\\Controllers\\InstitutionController.cs",
+              "RelativeToolTip": "TeachCloud\\Controllers\\InstitutionController.cs",
+              "ViewState": "AQIAABYAAAAAAAAAAAAQwB8AAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-16T14:56:00.02Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CourseController.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\\u05E8\u05D5\u05EA\\\u05DB\u05D9\u05EA\u05D4 \u05D5\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\Dotnet\\TeachCloudProject\\TeachCloud\\TeachCloud\\Controllers\\CourseController.cs",
+              "RelativeDocumentMoniker": "TeachCloud\\Controllers\\CourseController.cs",
+              "ToolTip": "C:\\Users\\user1\\Desktop\\\u05E8\u05D5\u05EA\\\u05DB\u05D9\u05EA\u05D4 \u05D5\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\Dotnet\\TeachCloudProject\\TeachCloud\\TeachCloud\\Controllers\\CourseController.cs",
+              "RelativeToolTip": "TeachCloud\\Controllers\\CourseController.cs",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAAwCAAAAAZAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-16T00:05:39.16Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AdminController.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\\u05E8\u05D5\u05EA\\\u05DB\u05D9\u05EA\u05D4 \u05D5\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\Dotnet\\TeachCloudProject\\TeachCloud\\TeachCloud\\Controllers\\AdminController.cs",
+              "RelativeDocumentMoniker": "TeachCloud\\Controllers\\AdminController.cs",
+              "ToolTip": "C:\\Users\\user1\\Desktop\\\u05E8\u05D5\u05EA\\\u05DB\u05D9\u05EA\u05D4 \u05D5\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\Dotnet\\TeachCloudProject\\TeachCloud\\TeachCloud\\Controllers\\AdminController.cs",
+              "RelativeToolTip": "TeachCloud\\Controllers\\AdminController.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAADYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-16T00:02:34.734Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "DataContext.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\\u05E8\u05D5\u05EA\\\u05DB\u05D9\u05EA\u05D4 \u05D5\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\Dotnet\\TeachCloudProject\\TeachCloud\\TeachCloud.Data\\DataContext.cs",
+              "RelativeDocumentMoniker": "TeachCloud.Data\\DataContext.cs",
+              "ToolTip": "C:\\Users\\user1\\Desktop\\\u05E8\u05D5\u05EA\\\u05DB\u05D9\u05EA\u05D4 \u05D5\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\Dotnet\\TeachCloudProject\\TeachCloud\\TeachCloud.Data\\DataContext.cs",
+              "RelativeToolTip": "TeachCloud.Data\\DataContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-15T21:10:54.509Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Institution.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\\u05E8\u05D5\u05EA\\\u05DB\u05D9\u05EA\u05D4 \u05D5\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\Dotnet\\TeachCloudProject\\TeachCloud\\TeachCloud.Core\\Entities\\Institution.cs",
+              "RelativeDocumentMoniker": "TeachCloud.Core\\Entities\\Institution.cs",
+              "ToolTip": "C:\\Users\\user1\\Desktop\\\u05E8\u05D5\u05EA\\\u05DB\u05D9\u05EA\u05D4 \u05D5\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\Dotnet\\TeachCloudProject\\TeachCloud\\TeachCloud.Core\\Entities\\Institution.cs",
+              "RelativeToolTip": "TeachCloud.Core\\Entities\\Institution.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T22:13:44.476Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Lesson.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\\u05E8\u05D5\u05EA\\\u05DB\u05D9\u05EA\u05D4 \u05D5\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\Dotnet\\TeachCloudProject\\TeachCloud\\TeachCloud.Core\\Entities\\Lesson.cs",
+              "RelativeDocumentMoniker": "TeachCloud.Core\\Entities\\Lesson.cs",
+              "ToolTip": "C:\\Users\\user1\\Desktop\\\u05E8\u05D5\u05EA\\\u05DB\u05D9\u05EA\u05D4 \u05D5\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\Dotnet\\TeachCloudProject\\TeachCloud\\TeachCloud.Core\\Entities\\Lesson.cs",
+              "RelativeToolTip": "TeachCloud.Core\\Entities\\Lesson.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAiwBUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T21:57:58.778Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Student.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\\u05E8\u05D5\u05EA\\\u05DB\u05D9\u05EA\u05D4 \u05D5\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\Dotnet\\TeachCloudProject\\TeachCloud\\TeachCloud.Core\\Entities\\Student.cs",
+              "RelativeDocumentMoniker": "TeachCloud.Core\\Entities\\Student.cs",
+              "ToolTip": "C:\\Users\\user1\\Desktop\\\u05E8\u05D5\u05EA\\\u05DB\u05D9\u05EA\u05D4 \u05D5\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\Dotnet\\TeachCloudProject\\TeachCloud\\TeachCloud.Core\\Entities\\Student.cs",
+              "RelativeToolTip": "TeachCloud.Core\\Entities\\Student.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T21:33:43.721Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Group.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\\u05E8\u05D5\u05EA\\\u05DB\u05D9\u05EA\u05D4 \u05D5\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\Dotnet\\TeachCloudProject\\TeachCloud\\TeachCloud.Core\\Entities\\Group.cs",
+              "RelativeDocumentMoniker": "TeachCloud.Core\\Entities\\Group.cs",
+              "ToolTip": "C:\\Users\\user1\\Desktop\\\u05E8\u05D5\u05EA\\\u05DB\u05D9\u05EA\u05D4 \u05D5\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\Dotnet\\TeachCloudProject\\TeachCloud\\TeachCloud.Core\\Entities\\Group.cs",
+              "RelativeToolTip": "TeachCloud.Core\\Entities\\Group.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAmwBYAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T21:32:03.797Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "File.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\\u05E8\u05D5\u05EA\\\u05DB\u05D9\u05EA\u05D4 \u05D5\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\Dotnet\\TeachCloudProject\\TeachCloud\\TeachCloud.Core\\Entities\\File.cs",
+              "RelativeDocumentMoniker": "TeachCloud.Core\\Entities\\File.cs",
+              "ToolTip": "C:\\Users\\user1\\Desktop\\\u05E8\u05D5\u05EA\\\u05DB\u05D9\u05EA\u05D4 \u05D5\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\Dotnet\\TeachCloudProject\\TeachCloud\\TeachCloud.Core\\Entities\\File.cs",
+              "RelativeToolTip": "TeachCloud.Core\\Entities\\File.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T21:34:39.854Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "TeachCloud.Data.csproj",
+              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\\u05E8\u05D5\u05EA\\\u05DB\u05D9\u05EA\u05D4 \u05D5\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\Dotnet\\TeachCloudProject\\TeachCloud\\TeachCloud.Data\\TeachCloud.Data.csproj",
+              "RelativeDocumentMoniker": "TeachCloud.Data\\TeachCloud.Data.csproj",
+              "ToolTip": "C:\\Users\\user1\\Desktop\\\u05E8\u05D5\u05EA\\\u05DB\u05D9\u05EA\u05D4 \u05D5\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\Dotnet\\TeachCloudProject\\TeachCloud\\TeachCloud.Data\\TeachCloud.Data.csproj",
+              "RelativeToolTip": "TeachCloud.Data\\TeachCloud.Data.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-03-15T21:10:06.728Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Teacher.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\\u05E8\u05D5\u05EA\\\u05DB\u05D9\u05EA\u05D4 \u05D5\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\Dotnet\\TeachCloudProject\\TeachCloud\\TeachCloud.Core\\Entities\\Teacher.cs",
+              "RelativeDocumentMoniker": "TeachCloud.Core\\Entities\\Teacher.cs",
+              "ToolTip": "C:\\Users\\user1\\Desktop\\\u05E8\u05D5\u05EA\\\u05DB\u05D9\u05EA\u05D4 \u05D5\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\Dotnet\\TeachCloudProject\\TeachCloud\\TeachCloud.Core\\Entities\\Teacher.cs",
+              "RelativeToolTip": "TeachCloud.Core\\Entities\\Teacher.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T21:29:02.334Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Admin.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\\u05E8\u05D5\u05EA\\\u05DB\u05D9\u05EA\u05D4 \u05D5\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\Dotnet\\TeachCloudProject\\TeachCloud\\TeachCloud.Core\\Entities\\Admin.cs",
+              "RelativeDocumentMoniker": "TeachCloud.Core\\Entities\\Admin.cs",
+              "ToolTip": "C:\\Users\\user1\\Desktop\\\u05E8\u05D5\u05EA\\\u05DB\u05D9\u05EA\u05D4 \u05D5\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\Dotnet\\TeachCloudProject\\TeachCloud\\TeachCloud.Core\\Entities\\Admin.cs",
+              "RelativeToolTip": "TeachCloud.Core\\Entities\\Admin.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T21:28:22.777Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\\u05E8\u05D5\u05EA\\\u05DB\u05D9\u05EA\u05D4 \u05D5\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\Dotnet\\TeachCloudProject\\TeachCloud\\TeachCloud.Core\\Entities\\User.cs",
+              "RelativeDocumentMoniker": "TeachCloud.Core\\Entities\\User.cs",
+              "ToolTip": "C:\\Users\\user1\\Desktop\\\u05E8\u05D5\u05EA\\\u05DB\u05D9\u05EA\u05D4 \u05D5\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\Dotnet\\TeachCloudProject\\TeachCloud\\TeachCloud.Core\\Entities\\User.cs",
+              "RelativeToolTip": "TeachCloud.Core\\Entities\\User.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAiwBMAAAALAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T21:25:25.653Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Course.cs",
+              "DocumentMoniker": "C:\\Users\\user1\\Desktop\\\u05E8\u05D5\u05EA\\\u05DB\u05D9\u05EA\u05D4 \u05D5\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\Dotnet\\TeachCloudProject\\TeachCloud\\TeachCloud.Core\\Entities\\Course.cs",
+              "RelativeDocumentMoniker": "TeachCloud.Core\\Entities\\Course.cs",
+              "ToolTip": "C:\\Users\\user1\\Desktop\\\u05E8\u05D5\u05EA\\\u05DB\u05D9\u05EA\u05D4 \u05D5\\\u05DC\u05D9\u05DE\u05D5\u05D3\u05D9\u05DD\\Dotnet\\TeachCloudProject\\TeachCloud\\TeachCloud.Core\\Entities\\Course.cs",
+              "RelativeToolTip": "TeachCloud.Core\\Entities\\Course.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T21:30:40.528Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
