@@ -10,7 +10,8 @@
         "dependencies": {
           "Swashbuckle.AspNetCore": "6.4.0",
           "TeachCloud.Core": "1.0.0",
-          "TeachCloud.Data": "1.0.0"
+          "TeachCloud.Data": "1.0.0",
+          "TeachCloud.Service": "1.0.0"
         },
         "runtime": {
           "TeachCloud.dll": {}
@@ -75,6 +76,14 @@
         "runtime": {
           "TeachCloud.Data.dll": {}
         }
+      },
+      "TeachCloud.Service/1.0.0": {
+        "dependencies": {
+          "TeachCloud.Core": "1.0.0"
+        },
+        "runtime": {
+          "TeachCloud.Service.dll": {}
+        }
       }
     }
   },
@@ -132,6 +141,11 @@
       "sha512": ""
     },
     "TeachCloud.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "TeachCloud.Service/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

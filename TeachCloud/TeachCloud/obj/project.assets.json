@@ -111,6 +111,19 @@
         "runtime": {
           "bin/placeholder/TeachCloud.Data.dll": {}
         }
+      },
+      "TeachCloud.Service/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "TeachCloud.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/TeachCloud.Service.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/TeachCloud.Service.dll": {}
+        }
       }
     }
   },
@@ -453,13 +466,19 @@
       "type": "project",
       "path": "../TeachCloud.Data/TeachCloud.Data.csproj",
       "msbuildProject": "../TeachCloud.Data/TeachCloud.Data.csproj"
+    },
+    "TeachCloud.Service/1.0.0": {
+      "type": "project",
+      "path": "../TeachCloud.Service/TeachCloud.Service.csproj",
+      "msbuildProject": "../TeachCloud.Service/TeachCloud.Service.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net8.0": [
       "Swashbuckle.AspNetCore >= 6.4.0",
       "TeachCloud.Core >= 1.0.0",
-      "TeachCloud.Data >= 1.0.0"
+      "TeachCloud.Data >= 1.0.0",
+      "TeachCloud.Service >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -500,6 +519,9 @@
             },
             "C:\\Users\\user1\\Desktop\\רות\\כיתה ו\\לימודים\\Dotnet\\TeachCloudProject\\TeachCloud\\TeachCloud.Data\\TeachCloud.Data.csproj": {
               "projectPath": "C:\\Users\\user1\\Desktop\\רות\\כיתה ו\\לימודים\\Dotnet\\TeachCloudProject\\TeachCloud\\TeachCloud.Data\\TeachCloud.Data.csproj"
+            },
+            "C:\\Users\\user1\\Desktop\\רות\\כיתה ו\\לימודים\\Dotnet\\TeachCloudProject\\TeachCloud\\TeachCloud.Service\\TeachCloud.Service.csproj": {
+              "projectPath": "C:\\Users\\user1\\Desktop\\רות\\כיתה ו\\לימודים\\Dotnet\\TeachCloudProject\\TeachCloud\\TeachCloud.Service\\TeachCloud.Service.csproj"
             }
           }
         }

@@ -13,6 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\TeachCloud.Core\TeachCloud.Core.csproj" />
     <ProjectReference Include="..\TeachCloud.Data\TeachCloud.Data.csproj" />
+    <ProjectReference Include="..\TeachCloud.Service\TeachCloud.Service.csproj" />
   </ItemGroup>
 
 </Project>

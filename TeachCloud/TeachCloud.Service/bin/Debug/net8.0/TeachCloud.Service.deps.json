@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "TeachCloud.Service/1.0.0": {
+        "dependencies": {
+          "TeachCloud.Core": "1.0.0"
+        },
+        "runtime": {
+          "TeachCloud.Service.dll": {}
+        }
+      },
+      "TeachCloud.Core/1.0.0": {
+        "runtime": {
+          "TeachCloud.Core.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "TeachCloud.Service/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "TeachCloud.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

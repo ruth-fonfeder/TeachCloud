@@ -8,6 +8,7 @@ namespace TeachCloud.Core.Entities
 {
     public class Admin : User
     {
+        public Admin() : base(UserRole.Admin) { }
         // רשימת מורים שמנוהלים על ידי המנהל
         public List<Teacher> Teachers { get; set; } = new();
 

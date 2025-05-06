@@ -7,7 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeachCloud", "TeachCloud\Te
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeachCloud.Core", "TeachCloud.Core\TeachCloud.Core.csproj", "{1971B725-847C-42BE-A7A2-71AA86CD7176}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeachCloud.Data", "TeachCloud.Data\TeachCloud.Data.csproj", "{57EC699D-6517-4719-A470-A97D677EBB4C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeachCloud.Data", "TeachCloud.Data\TeachCloud.Data.csproj", "{57EC699D-6517-4719-A470-A97D677EBB4C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TeachCloud.Service", "TeachCloud.Service\TeachCloud.Service.csproj", "{51C59311-E2FC-409D-BB7A-941B45A9A293}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{57EC699D-6517-4719-A470-A97D677EBB4C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57EC699D-6517-4719-A470-A97D677EBB4C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57EC699D-6517-4719-A470-A97D677EBB4C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51C59311-E2FC-409D-BB7A-941B45A9A293}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51C59311-E2FC-409D-BB7A-941B45A9A293}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51C59311-E2FC-409D-BB7A-941B45A9A293}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51C59311-E2FC-409D-BB7A-941B45A9A293}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
