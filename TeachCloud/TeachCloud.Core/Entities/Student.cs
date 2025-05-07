@@ -10,7 +10,7 @@ namespace TeachCloud.Core.Entities
     {
 
         public Student() : base(UserRole.Student) { }
-
+        public int GroupId { get; set; }
         public List<Group> StudyGroups { get; set; } = new();
     }
 }

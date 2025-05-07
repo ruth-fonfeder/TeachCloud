@@ -1,18 +1,40 @@
 ﻿using TeachCloud.Core.Entities;
-using TeachCloud.Data;
+using TeachCloud.Core.Repositories;
 
-public class LessonRepository /*: ILessonRepository*/
+namespace TeachCloud.Data.Repositories
 {
-    private readonly DataContext _context;
-
-    public LessonRepository(DataContext context)
+    public class LessonRepository : ILessonRepository
     {
-        _context = context;
-    }
+        private readonly DataContext _context;
 
-    public IEnumerable<Lesson> GetAll() => _context.Lessons.ToList();
-    public Lesson? GetById(int id) => _context.Lessons.FirstOrDefault(l => l.Id == id);
-    public void Add(Lesson lesson) => _context.Lessons.Add(lesson);
-    public void Delete(Lesson lesson) => _context.Lessons.Remove(lesson);
-    //public void Save() => _context.SaveChanges();
+        public LessonRepository(DataContext context)
+        {
+            _context = context;
+        }
+
+        public IEnumerable<Lesson> GetAll()
+        {
+            return _context.Lessons.ToList();
+        }
+
+        public Lesson? GetById(int id)
+        {
+            return _context.Lessons.FirstOrDefault(e => e.Id == id);
+        }
+
+        public void Add(Lesson lesson)
+        {
+            _context.Lessons.Add(lesson);
+        }
+
+        public void Delete(Lesson lesson)
+        {
+            _context.Lessons.Remove(lesson);
+        }
+
+        public void Save()
+        {
+           // _context.SaveChanges();
+        }
+    }
 }

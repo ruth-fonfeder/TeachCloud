@@ -1,5 +1,8 @@
 ﻿using TeachCloud.Core.Entities;
 
+
+namespace TeachCloud.Core.Repositories
+{
 public interface ILessonRepository
 {
     IEnumerable<Lesson> GetAll();
@@ -8,3 +11,5 @@ public interface ILessonRepository
     void Delete(Lesson lesson);
     void Save();
 }
+}
+

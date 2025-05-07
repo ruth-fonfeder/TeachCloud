@@ -1,5 +1,8 @@
 ﻿using TeachCloud.Core.Entities;
 
+
+namespace TeachCloud.Core.Repositories
+{
 public interface IGroupRepository
 {
     IEnumerable<Group> GetAll();
@@ -7,4 +10,5 @@ public interface IGroupRepository
     void Add(Group group);
     void Delete(Group group);
     void Save();
+}
 }

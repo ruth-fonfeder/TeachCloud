@@ -6,7 +6,7 @@ using FileEntity = TeachCloud.Core.Entities.File;
 
 namespace TeachCloud.Service
 {
-    public class FileService /*: IFileService*/
+    public class FileService : IFileService
     {
         private readonly IFileRepository _fileRepository;
 

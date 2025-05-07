@@ -19,9 +19,20 @@ builder.Services.AddScoped<IAdminRepository,AdminRepository>();
 builder.Services.AddScoped<ICourseService,CourseService>();
 builder.Services.AddScoped<ICourseRepository,CourseRepository>();
 
+builder.Services.AddScoped<IGroupService, GroupService>();
+builder.Services.AddScoped<IGroupRepository, GroupRepository>();
 
-builder.Services.AddSingleton<DataContext>();
+builder.Services.AddScoped<ILessonService, LessonService>();
+builder.Services.AddScoped<ILessonRepository, LessonRepository>();
 
+builder.Services.AddScoped<IFileService, FileService>();
+builder.Services.AddScoped<IFileRepository, FileRepository>();
+
+builder.Services.AddScoped<IStudentService, StudentService>();
+builder.Services.AddScoped<IStudentRepository, StudentRepository>();
+
+builder.Services.AddScoped<ITeacherService, TeacherService>();
+builder.Services.AddScoped<ITeacherRepository, TeacherRepository>();
 
 
 var app = builder.Build();

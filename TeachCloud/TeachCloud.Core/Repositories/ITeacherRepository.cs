@@ -1,5 +1,9 @@
 ﻿using TeachCloud.Core.Entities;
 
+
+
+namespace TeachCloud.Core.Repositories
+{
 public interface ITeacherRepository
 {
     IEnumerable<Teacher> GetAll();
@@ -7,4 +11,5 @@ public interface ITeacherRepository
     void Add(Teacher teacher);
     void Delete(Teacher teacher);
     void Save();
+}
 }

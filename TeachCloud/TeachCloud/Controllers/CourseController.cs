@@ -1,8 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TeachCloud.Core.Entities;
-using TeachCloud.Data;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+using TeachCloud.Core.Service;
 
 namespace TeachCloud.Controllers
 {
@@ -10,44 +8,45 @@ namespace TeachCloud.Controllers
     [Route("api/[controller]")]
     public class CourseController : ControllerBase
     {
-        private readonly DataContext _context;
+        private readonly ICourseService _courseService;
 
-        public CourseController(DataContext context)
+        public CourseController(ICourseService courseService)
         {
-            _context = context;
+            _courseService = courseService;
         }
 
         [HttpGet]
-        public IActionResult GetAll() => Ok(_context.Courses);
+        public IActionResult GetAll() => Ok(_courseService.GetAllCourses());
 
         [HttpGet("{id}")]
-        public IActionResult GetById(int id) => Ok(_context.Courses.FirstOrDefault(c => c.Id == id));
+        public IActionResult GetById(int id)
+        {
+            var course = _courseService.GetCourseById(id);
+            if (course == null) return NotFound();
+            return Ok(course);
+        }
 
         [HttpPost]
         public IActionResult Create(Course course)
         {
-            _context.Courses.Add(course);
-            return CreatedAtAction(nameof(GetById), new { id = course.Id }, course);
+            var createdCourse = _courseService.CreateCourse(course);
+            return CreatedAtAction(nameof(GetById), new { id = createdCourse.Id }, createdCourse);
         }
 
         [HttpPut("{id}")]
         public IActionResult Update(int id, Course course)
         {
-            var existing = _context.Courses.FirstOrDefault(c => c.Id == id);
-            if (existing == null) return NotFound();
-            existing.Name = course.Name;
-            existing.TeacherId = course.TeacherId;
+            var success = _courseService.UpdateCourse(id, course);
+            if (!success) return NotFound();
             return NoContent();
         }
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            var course = _context.Courses.FirstOrDefault(c => c.Id == id);
-            if (course == null) return NotFound();
-            _context.Courses.Remove(course);
+            var success = _courseService.DeleteCourse(id);
+            if (!success) return NotFound();
             return NoContent();
         }
     }
-
 }

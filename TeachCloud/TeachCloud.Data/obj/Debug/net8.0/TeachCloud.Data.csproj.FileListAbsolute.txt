@@ -14,3 +14,5 @@ C:\Users\user1\Desktop\רות\כיתה ו\לימודים\Dotnet\TeachCloudProjec
 C:\Users\user1\Desktop\רות\כיתה ו\לימודים\Dotnet\TeachCloudProject\TeachCloud\TeachCloud.Data\obj\Debug\net8.0\refint\TeachCloud.Data.dll
 C:\Users\user1\Desktop\רות\כיתה ו\לימודים\Dotnet\TeachCloudProject\TeachCloud\TeachCloud.Data\obj\Debug\net8.0\TeachCloud.Data.pdb
 C:\Users\user1\Desktop\רות\כיתה ו\לימודים\Dotnet\TeachCloudProject\TeachCloud\TeachCloud.Data\obj\Debug\net8.0\ref\TeachCloud.Data.dll
+C:\Users\user1\Desktop\רות\כיתה ו\לימודים\Dotnet\TeachCloudProject\TeachCloud\TeachCloud.Data\bin\Debug\net8.0\TeachCloud.Data.runtimeconfig.json
+C:\Users\user1\Desktop\רות\כיתה ו\לימודים\Dotnet\TeachCloudProject\TeachCloud\TeachCloud.Data\obj\Debug\net8.0\TeachCloud.Data.genruntimeconfig.cache

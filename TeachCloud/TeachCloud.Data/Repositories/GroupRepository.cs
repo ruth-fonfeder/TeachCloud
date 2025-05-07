@@ -1,18 +1,40 @@
 ﻿using TeachCloud.Core.Entities;
-using TeachCloud.Data;
+using TeachCloud.Core.Repositories;
 
-public class GroupRepository /*: IGroupRepository*/
+namespace TeachCloud.Data.Repositories
 {
-    private readonly DataContext _context;
-
-    public GroupRepository(DataContext context)
+    public class GroupRepository : IGroupRepository
     {
-        _context = context;
-    }
+        private readonly DataContext _context;
 
-    public IEnumerable<Group> GetAll() => _context.Groups.ToList();
-    public Group? GetById(int id) => _context.Groups.FirstOrDefault(g => g.Id == id);
-    public void Add(Group group) => _context.Groups.Add(group);
-    public void Delete(Group group) => _context.Groups.Remove(group);
-   // public void Save() => _context.SaveChanges();
+        public GroupRepository(DataContext context)
+        {
+            _context = context;
+        }
+
+        public IEnumerable<Group> GetAll()
+        {
+            return _context.Groups.ToList();
+        }
+
+        public Group? GetById(int id)
+        {
+            return _context.Groups.FirstOrDefault(e => e.Id == id);
+        }
+
+        public void Add(Group group)
+        {
+            _context.Groups.Add(group);
+        }
+
+        public void Delete(Group group)
+        {
+            _context.Groups.Remove(group);
+        }
+
+        public void Save()
+        {
+          //  _context.SaveChanges();
+        }
+    }
 }

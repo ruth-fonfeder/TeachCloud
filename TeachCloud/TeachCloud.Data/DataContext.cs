@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using TeachCloud.Core.Entities;
 
 namespace TeachCloud.Data
 {
-    public class DataContext
+    public class DataContext : DbContext
     {
         public List<Admin> Admins { get; set; }
         public List<Course> Courses { get; set; }

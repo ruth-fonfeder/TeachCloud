@@ -5,7 +5,7 @@ using TeachCloud.Core.Service;
 
 namespace TeachCloud.Service
 {
-    public class TeacherService /*: ITeacherService*/
+    public class TeacherService : ITeacherService
     {
         private readonly ITeacherRepository _teacherRepository;
 

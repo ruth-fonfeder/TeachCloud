@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using TeachCloud.Core.Entities;
-using TeachCloud.Data;
-using System.Linq;
+using TeachCloud.Core.Service;
 
 namespace TeachCloud.Controllers
 {
@@ -9,50 +8,44 @@ namespace TeachCloud.Controllers
     [Route("api/[controller]")]
     public class StudentController : ControllerBase
     {
-        private readonly DataContext _context;
+        private readonly IStudentService _studentService;
 
-        public StudentController(DataContext context)
+        public StudentController(IStudentService studentService)
         {
-            _context = context;
+            _studentService = studentService;
         }
 
         [HttpGet]
-        public IActionResult GetAll() => Ok(_context.Students);
+        public IActionResult GetAll() => Ok(_studentService.GetAllStudents());
 
         [HttpGet("{id}")]
-        public IActionResult GetById(int id) => Ok(_context.Students.FirstOrDefault(s => s.Id == id));
+        public IActionResult GetById(int id)
+        {
+            var student = _studentService.GetStudentById(id);
+            if (student == null) return NotFound();
+            return Ok(student);
+        }
 
         [HttpPost]
         public IActionResult Create(Student student)
         {
-            _context.Students.Add(student);
-         //   _context.SaveChanges();
-            return CreatedAtAction(nameof(GetById), new { id = student.Id }, student);
+            var createdStudent = _studentService.CreateStudent(student);
+            return CreatedAtAction(nameof(GetById), new { id = createdStudent.Id }, createdStudent);
         }
 
         [HttpPut("{id}")]
         public IActionResult Update(int id, Student student)
         {
-            var existing = _context.Students.FirstOrDefault(s => s.Id == id);
-            if (existing == null) return NotFound();
-
-            existing.FullName = student.FullName;
-            existing.Email = student.Email;
-            existing.PasswordHash = student.PasswordHash;
-            // אין צורך לעדכן Role
-
-            //_context.SaveChanges();
+            var success = _studentService.UpdateStudent(id, student);
+            if (!success) return NotFound();
             return NoContent();
         }
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            var student = _context.Students.FirstOrDefault(s => s.Id == id);
-            if (student == null) return NotFound();
-
-            _context.Students.Remove(student);
-           // _context.SaveChanges();
+            var success = _studentService.DeleteStudent(id);
+            if (!success) return NotFound();
             return NoContent();
         }
     }

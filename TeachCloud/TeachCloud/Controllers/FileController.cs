@@ -1,69 +1,51 @@
 using Microsoft.AspNetCore.Mvc;
 using TeachCloud.Core.Entities;
-using TeachCloud.Data;
-using System.Linq;
+using TeachCloud.Core.Service;
 using FileEntity = TeachCloud.Core.Entities.File;
-
-
 namespace TeachCloud.Controllers
 {
-    
     [ApiController]
     [Route("api/[controller]")]
     public class FileController : ControllerBase
     {
-        private readonly DataContext _context;
+        private readonly IFileService _fileService;
 
-        public FileController(DataContext context)
+        public FileController(IFileService fileService)
         {
-            _context = context;
+            _fileService = fileService;
         }
 
         [HttpGet]
-        public IActionResult GetAll()
-        {
-            return Ok(_context.Files);
-        }
+        public IActionResult GetAll() => Ok(_fileService.GetAllFiles());
 
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
-            var file = _context.Files.FirstOrDefault(f => f.Id == id);
-            if (file == null)
-                return NotFound();
+            var file = _fileService.GetFileById(id);
+            if (file == null) return NotFound();
             return Ok(file);
         }
 
         [HttpPost]
-        public IActionResult Create([FromBody] FileEntity file)
+        public IActionResult Create(FileEntity file)
         {
-            file.Id = _context.Files.Any() ? _context.Files.Max(f => f.Id) + 1 : 1;
-            _context.Files.Add(file);
-            return CreatedAtAction(nameof(GetById), new { id = file.Id }, file);
+            var createdFile = _fileService.CreateFile(file);
+            return CreatedAtAction(nameof(GetById), new { id = createdFile.Id }, createdFile);
         }
 
         [HttpPut("{id}")]
-        public IActionResult Update(int id, [FromBody] FileEntity file)
+        public IActionResult Update(int id, FileEntity file)
         {
-            var existing = _context.Files.FirstOrDefault(f => f.Id == id);
-            if (existing == null)
-                return NotFound();
-
-            existing.FileName = file.FileName;
-            existing.FilePath = file.FilePath;
-            existing.LessonId = file.LessonId;
-
+            var success = _fileService.UpdateFile(id, file);
+            if (!success) return NotFound();
             return NoContent();
         }
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            var file = _context.Files.FirstOrDefault(f => f.Id == id);
-            if (file == null)
-                return NotFound();
-
-            _context.Files.Remove(file);
+            var success = _fileService.DeleteFile(id);
+            if (!success) return NotFound();
             return NoContent();
         }
     }

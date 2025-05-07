@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using TeachCloud.Core.Entities;
-using TeachCloud.Data;
-using System.Linq;
+using TeachCloud.Core.Service;
 
 namespace TeachCloud.Controllers
 {
@@ -9,42 +8,44 @@ namespace TeachCloud.Controllers
     [Route("api/[controller]")]
     public class GroupController : ControllerBase
     {
-        private readonly DataContext _context;
+        private readonly IGroupService _groupService;
 
-        public GroupController(DataContext context)
+        public GroupController(IGroupService groupService)
         {
-            _context = context;
+            _groupService = groupService;
         }
 
         [HttpGet]
-        public IActionResult GetAll() => Ok(_context.Groups);
+        public IActionResult GetAll() => Ok(_groupService.GetAllGroups());
 
         [HttpGet("{id}")]
-        public IActionResult GetById(int id) => Ok(_context.Groups.FirstOrDefault(g => g.Id == id));
+        public IActionResult GetById(int id)
+        {
+            var group = _groupService.GetGroupById(id);
+            if (group == null) return NotFound();
+            return Ok(group);
+        }
 
         [HttpPost]
         public IActionResult Create(Group group)
         {
-            _context.Groups.Add(group);
-            return CreatedAtAction(nameof(GetById), new { id = group.Id }, group);
+            var createdGroup = _groupService.CreateGroup(group);
+            return CreatedAtAction(nameof(GetById), new { id = createdGroup.Id }, createdGroup);
         }
 
         [HttpPut("{id}")]
         public IActionResult Update(int id, Group group)
         {
-            var existing = _context.Groups.FirstOrDefault(g => g.Id == id);
-            if (existing == null) return NotFound();
-            existing.Name = group.Name;
-            existing.CourseId = group.CourseId;
+            var success = _groupService.UpdateGroup(id, group);
+            if (!success) return NotFound();
             return NoContent();
         }
 
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            var group = _context.Groups.FirstOrDefault(g => g.Id == id);
-            if (group == null) return NotFound();
-            _context.Groups.Remove(group);
+            var success = _groupService.DeleteGroup(id);
+            if (!success) return NotFound();
             return NoContent();
         }
     }

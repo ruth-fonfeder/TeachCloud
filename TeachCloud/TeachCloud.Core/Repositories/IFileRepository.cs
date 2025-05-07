@@ -1,10 +1,12 @@
 ﻿using FileEntity = TeachCloud.Core.Entities.File;
-
-public interface IFileRepository
+namespace TeachCloud.Core.Repositories
 {
-    IEnumerable<FileEntity> GetAll();
-    FileEntity? GetById(int id);
-    void Add(FileEntity file);
-    void Delete(FileEntity file);
-    void Save();
+    public interface IFileRepository
+    {
+        IEnumerable<FileEntity> GetAll();
+        FileEntity? GetById(int id);
+        void Add(FileEntity file);
+        void Delete(FileEntity file);
+        void Save();
+    }
 }
