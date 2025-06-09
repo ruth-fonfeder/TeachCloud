@@ -1,51 +1,46 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
+using Microsoft.Extensions.Options;
 using TeachCloud.Core.Entities;
 
 namespace TeachCloud.Data
 {
     public class DataContext : DbContext
     {
-        public List<Admin> Admins { get; set; }
-        public List<Course> Courses { get; set; }
-        public List<Core.Entities.File> Files { get; set; }
-        public List<Group> Groups { get; set; }
-        public List<Institution> Institutions { get; set; }
-        public List<Lesson> Lessons { get; set; }
-        public List<Student> Students { get; set; }
-        public List<Teacher> Teachers { get; set; }
+        public DbSet<Admin> Admins { get; set; }
+        public DbSet<Course> Courses { get; set; }
+        public DbSet<Core.Entities.File> Files { get; set; }
+        public DbSet<Group> Groups { get; set; }
+        public DbSet<Institution> Institutions { get; set; }
+        public DbSet<Lesson> Lessons { get; set; }
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Teacher> Teachers { get; set; }
 
-        public DataContext()
-        {
-            // אתחול כל הרשימות
-            Admins = new List<Admin>();
-            Courses = new List<Course>();
-            Files = new List<Core.Entities.File>();
-            Groups = new List<Group>();
-            Institutions = new List<Institution>();
-            Lessons = new List<Lesson>();
-            Students = new List<Student>();
-            Teachers = new List<Teacher>();
+        public DataContext(DbContextOptions<DataContext> options) : base(options) { }
+       
 
-            // עכשיו אפשר להכניס מידע
-            Admins.Add(new Admin
-            {
-                FullName = "שרה כהן",
-                Email = "sara@example.com",
-                PasswordHash = "123456",
-                Teachers = new List<Teacher>(),
-                Groups = new List<Group>()
-            });
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    base.OnModelCreating(modelBuilder);
 
-            Courses.AddRange(new[]
-            {
-                new Course { Id = 1, Name = "מתמטיקה" },
-                new Course { Id = 2, Name = "היסטוריה" }
-            });
-        }
+        //    // הכנסת נתונים התחלתיים (seeding)
+        //    modelBuilder.Entity<Admin>().HasData(new Admin
+        //    {
+        //        Id = 1,
+        //        FullName = "שרה כהן",
+        //        Email = "sara@example.com",
+        //        PasswordHash = "123456"
+        //    });
+
+        //    modelBuilder.Entity<Course>().HasData(
+        //        new Course { Id = 1, Name = "מתמטיקה" },
+        //        new Course
+        //        {
+        //            Id = 2,
+        //            Name = "היסטוריה"
+        //        }
+        //    );
+        //}
     }
-
 }
 
-
+                

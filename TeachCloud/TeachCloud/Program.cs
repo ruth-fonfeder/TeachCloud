@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using TeachCloud.Core.Repositories;
 using TeachCloud.Core.Service;
 using TeachCloud.Data;
@@ -7,7 +8,7 @@ using TeachCloud.Service;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddSingleton<DataContext>();//זה צריך להישאר רק לבנתיים אחר כך צריך למחוק ולשנות!!
+
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -33,6 +34,17 @@ builder.Services.AddScoped<IStudentRepository, StudentRepository>();
 
 builder.Services.AddScoped<ITeacherService, TeacherService>();
 builder.Services.AddScoped<ITeacherRepository, TeacherRepository>();
+
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
+
+
+builder.Services.AddDbContext<DataContext>(options =>
+    options.UseMySql(
+        builder.Configuration.GetConnectionString("DefaultConnection"),
+        new MySqlServerVersion(new Version(8, 0, 41)),
+        mysqlOptions => mysqlOptions.EnableRetryOnFailure()
+    ));
 
 
 var app = builder.Build();
