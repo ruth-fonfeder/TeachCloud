@@ -35,7 +35,7 @@ namespace TeachCloud.Data.Repositories
 
         public void Save()
         {
-            //_context.SaveChanges();
+            _context.SaveChanges();
         }
     }
 }

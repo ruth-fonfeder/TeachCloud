@@ -33,12 +33,12 @@ namespace TeachCloud.Data.Repositories
             _context.Admins.Add(admin);
         }
 
-        //public void Update(Admin admin) צריך לסדר את זה אחר כך
-        //{
-        //    _context.Admins.Update(admin); // או לעדכן שדות כמו בקודם
-        //}
+        public void Update(Admin admin)// צריך לסדר את זה אחר כך
+        {
+            _context.Admins.Update(admin); // או לעדכן שדות כמו בקודם
+        }
 
-        public void Delete(Admin admin)
+    public void Delete(Admin admin)
         {
             _context.Admins.Remove(admin);
         }
