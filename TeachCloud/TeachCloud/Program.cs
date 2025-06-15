@@ -1,15 +1,20 @@
 using Microsoft.EntityFrameworkCore;
+using TeachCloud.Core.Mappings;
 using TeachCloud.Core.Repositories;
 using TeachCloud.Core.Service;
 using TeachCloud.Data;
 using TeachCloud.Data.Repositories;
 using TeachCloud.Service;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
+
+builder.Services.AddAutoMapper(typeof(DtoMappingProfile).Assembly);
+
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

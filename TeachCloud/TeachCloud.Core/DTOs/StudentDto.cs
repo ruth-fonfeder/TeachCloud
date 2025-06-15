@@ -11,12 +11,6 @@ namespace TeachCloud.Core.DTOs
         public int Id { get; set; }
         public string FullName { get; set; } = string.Empty;
         public List<GroupSimpleDto> StudyGroups { get; set; } = new();
-
-        public class GroupSimpleDto
-        {
-            public int Id { get; set; }
-            public string Name { get; set; } = string.Empty;
-        }
     }
 
 }
