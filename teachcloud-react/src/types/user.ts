@@ -31,7 +31,7 @@ export interface GroupSimple {
 
 export interface RegisterRequest {
   fullName: string
-  username: string
+  email: string
   password: string
   userType: UserType
 }

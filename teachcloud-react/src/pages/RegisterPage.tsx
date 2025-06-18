@@ -17,7 +17,7 @@ import { authService } from "../services/auth"
 export default function RegisterPage() {
   const [formData, setFormData] = useState({
     fullName: "",
-    username: "",
+    email: "",
     password: "",
     confirmPassword: "",
     userType: "" as UserType | "",
@@ -47,7 +47,7 @@ export default function RegisterPage() {
     try {
       await authService.register({
         fullName: formData.fullName,
-        username: formData.username,
+        email: formData.email,
         password: formData.password,
         userType: formData.userType as UserType,
       })
@@ -99,7 +99,7 @@ export default function RegisterPage() {
               />
             </div>
 
-            <div className="space-y-2">
+            {/* <div className="space-y-2">
               <Label htmlFor="username">שם משתמש</Label>
               <Input
                 id="username"
@@ -112,7 +112,26 @@ export default function RegisterPage() {
                 className="text-right"
                 dir="rtl"
               />
+            </div> */}
+
+            <div className="space-y-2">
+              <Label htmlFor="email">אימייל</Label>
+              <Input
+                id="email"
+                name="email"
+                type="email"
+                value={formData.email}
+                onChange={handleChange}
+                required
+                disabled={isLoading}
+                className="text-right"
+                dir="rtl"
+                // autoComplete="email"
+                autoComplete="off"
+
+              />
             </div>
+
 
             <div className="space-y-2">
               <Label htmlFor="password">סיסמה</Label>

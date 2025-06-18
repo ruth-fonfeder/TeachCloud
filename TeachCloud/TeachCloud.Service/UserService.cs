@@ -28,12 +28,12 @@ namespace TeachCloud.Service
 
             if (dto.UserType == "student")
             {
-                var student = new Student { FullName = dto.FullName, Username = dto.Username, Password = hashedPassword };
+                var student = new Student { FullName = dto.FullName, Email = dto.Email, PasswordHash = hashedPassword };
                 _studentService.CreateStudent(student);
             }
             else if (dto.UserType == "teacher")
             {
-                var teacher = new Teacher { FullName = dto.FullName, Username = dto.Username, Password = hashedPassword };
+                var teacher = new Teacher { FullName = dto.FullName, Email = dto.Email, PasswordHash = hashedPassword };
                 _teacherService.CreateTeacher(teacher);
             }
         }
