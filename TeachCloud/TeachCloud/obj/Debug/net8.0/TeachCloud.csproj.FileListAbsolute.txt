@@ -153,3 +153,4 @@ C:\Users\user1\Desktop\רות\כיתה ו\לימודים\Dotnet\TeachCloudProjec
 C:\Users\user1\Desktop\רות\כיתה ו\לימודים\Dotnet\TeachCloudProject\TeachCloud\TeachCloud\obj\Debug\net8.0\TeachCloud.pdb
 C:\Users\user1\Desktop\רות\כיתה ו\לימודים\Dotnet\TeachCloudProject\TeachCloud\TeachCloud\obj\Debug\net8.0\TeachCloud.genruntimeconfig.cache
 C:\Users\user1\Desktop\רות\כיתה ו\לימודים\Dotnet\TeachCloudProject\TeachCloud\TeachCloud\obj\Debug\net8.0\ref\TeachCloud.dll
+C:\Users\user1\Desktop\רות\כיתה ו\לימודים\Dotnet\TeachCloudProject\TeachCloud\TeachCloud\bin\Debug\net8.0\BCrypt.Net-Next.dll
