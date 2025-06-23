@@ -146,6 +146,24 @@ namespace TeachCloud.API.Controllers
 
             return Ok(new { success = true });
         }
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginDto dto)
+        {
+            var student = await _context.Students.FirstOrDefaultAsync(s => s.Email == dto.Email && s.PasswordHash == dto.Password);
+            if (student != null)
+                return Ok(new { role = "Student", fullName = student.FullName, token = "student-token" });
+
+            var teacher = await _context.Teachers.FirstOrDefaultAsync(t => t.Email == dto.Email && t.PasswordHash == dto.Password);
+            if (teacher != null)
+                return Ok(new { role = "Teacher", fullName = teacher.FullName, token = "teacher-token" });
+
+            var admin = await _context.Admins.FirstOrDefaultAsync(a => a.Email == dto.Email && a.PasswordHash == dto.Password);
+            if (admin != null)
+                return Ok(new { role = "Admin", fullName = admin.FullName, token = "admin-token" });
+
+            return Unauthorized("Invalid email or password");
+        }
+
 
     }
 }
