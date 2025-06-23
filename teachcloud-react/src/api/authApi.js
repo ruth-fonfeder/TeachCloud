@@ -1,6 +1,6 @@
 // src/api/authApi.js
 
-const API_BASE = "http://localhost:7166/api"; // שים כאן את כתובת ה־API האמיתית שלך
+const API_BASE = "https://localhost:7166/api"; // שים כאן את כתובת ה־API האמיתית שלך
 
 export async function register(userData) {
   const res = await fetch(`${API_BASE}/auth/register`, {

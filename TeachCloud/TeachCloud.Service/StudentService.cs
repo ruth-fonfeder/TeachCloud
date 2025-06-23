@@ -1,29 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using TeachCloud.Core.DTOs;
 using TeachCloud.Core.Entities;
 using TeachCloud.Core.Repositories;
 using TeachCloud.Core.Service;
 
 namespace TeachCloud.Service
 {
-    public class StudentService: IStudentService
+    public class StudentService : IStudentService
     {
         private readonly IStudentRepository _studentRepository;
+        private readonly IGroupRepository _groupRepository;
 
-        public StudentService(IStudentRepository studentRepository)
+        public StudentService(IStudentRepository studentRepository, IGroupRepository groupRepository)
         {
             _studentRepository = studentRepository;
+            _groupRepository = groupRepository;
         }
 
         public IEnumerable<Student> GetAllStudents() => _studentRepository.GetAll();
 
         public Student? GetStudentById(int id) => _studentRepository.GetById(id);
 
-        public Student CreateStudent(Student student)
+        public Student CreateStudent(StudentDto studentDto)
         {
+            var student = new Student
+            {
+                FullName = studentDto.FullName,
+                Email = studentDto.Email,
+                StudyGroups = new List<Group>()
+            };
+
+            foreach (var groupId in studentDto.StudyGroupIds)
+            {
+                var group = _groupRepository.GetById(groupId);
+                if (group != null)
+                {
+                    student.StudyGroups.Add(group);
+                }
+            }
+
             _studentRepository.Add(student);
             _studentRepository.Save();
             return student;

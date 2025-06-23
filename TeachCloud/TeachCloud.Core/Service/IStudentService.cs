@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using TeachCloud.Core.DTOs;
 using TeachCloud.Core.Entities;
 
 namespace TeachCloud.Core.Service
@@ -11,7 +8,8 @@ namespace TeachCloud.Core.Service
     {
         IEnumerable<Student> GetAllStudents();
         Student? GetStudentById(int id);
-        Student CreateStudent(Student student);
+        Student CreateStudent(StudentDto studentDto); // ✅ כאן הסדר הנכון
+        //Student CreateStudent(Student student);
         bool UpdateStudent(int id, Student student);
         bool DeleteStudent(int id);
     }

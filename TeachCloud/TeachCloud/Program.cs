@@ -1,29 +1,36 @@
+﻿
 using Microsoft.EntityFrameworkCore;
-using TeachCloud.Core.Mappings;
 using TeachCloud.Core.Repositories;
 using TeachCloud.Core.Service;
 using TeachCloud.Data;
 using TeachCloud.Data.Repositories;
 using TeachCloud.Service;
 
-
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// ✅ קונפיגורציית CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader();
+    });
+});
 
+// ✅ שירותי מערכת
 builder.Services.AddControllers();
-
 builder.Services.AddAutoMapper(typeof(DtoMappingProfile).Assembly);
-
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddScoped<IAdminService,AdminService>();
-builder.Services.AddScoped<IAdminRepository,AdminRepository>();
+// ✅ Repository & Services Dependency Injection
+builder.Services.AddScoped<IAdminService, AdminService>();
+builder.Services.AddScoped<IAdminRepository, AdminRepository>();
 
-builder.Services.AddScoped<ICourseService,CourseService>();
-builder.Services.AddScoped<ICourseRepository,CourseRepository>();
+builder.Services.AddScoped<ICourseService, CourseService>();
+builder.Services.AddScoped<ICourseRepository, CourseRepository>();
 
 builder.Services.AddScoped<IGroupService, GroupService>();
 builder.Services.AddScoped<IGroupRepository, GroupRepository>();
@@ -40,10 +47,7 @@ builder.Services.AddScoped<IStudentRepository, StudentRepository>();
 builder.Services.AddScoped<ITeacherService, TeacherService>();
 builder.Services.AddScoped<ITeacherRepository, TeacherRepository>();
 
-builder.Logging.ClearProviders();
-builder.Logging.AddConsole();
-
-
+// ✅ מסד נתונים
 builder.Services.AddDbContext<DataContext>(options =>
     options.UseMySql(
         builder.Configuration.GetConnectionString("DefaultConnection"),
@@ -51,17 +55,24 @@ builder.Services.AddDbContext<DataContext>(options =>
         mysqlOptions => mysqlOptions.EnableRetryOnFailure()
     ));
 
+// ✅ לוגים
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// ✅ שימוש ב־CORS לפני כל שימוש ב־HTTPS או Routing
+app.UseCors("AllowAll");
+
+// ✅ הפניה ל־HTTPS
+app.UseHttpsRedirection();
+
+// ✅ Swagger (בפיתוח)
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
-app.UseHttpsRedirection();
 
 app.UseAuthorization();
 

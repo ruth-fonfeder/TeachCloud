@@ -22,4 +22,8 @@
     <ProjectReference Include="..\TeachCloud.Service\TeachCloud.Service.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers\TeachCloud\" />
+  </ItemGroup>
+
 </Project>

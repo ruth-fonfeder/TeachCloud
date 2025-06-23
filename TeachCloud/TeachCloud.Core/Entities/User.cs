@@ -3,24 +3,26 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-public abstract class User
+namespace TeachCloud.Core.Entities
 {
-    public int Id { get; set; }
-    public string FullName { get; set; } = string.Empty;
-    public string Email { get; set; } = string.Empty;
-    public string PasswordHash { get; set; } = string.Empty;
-    public UserRole Role { get; private set; }
-
-    public User(UserRole role)
+    public abstract class User
     {
-        Role = role;
-    }
-}
+        public int Id { get; set; }
+        public string FullName { get; set; } = string.Empty;
+        public string Email { get; set; } = string.Empty;
+        public string PasswordHash { get; set; } = string.Empty;
+        public UserRole Role { get; private set; }
 
-public enum UserRole
-{
-    Admin,
-    Teacher,
-    Student
+        public User(UserRole role)
+        {
+            Role = role;
+        }
+    }
+
+    public enum UserRole
+    {
+        Admin,
+        Teacher,
+        Student
+    }
 }

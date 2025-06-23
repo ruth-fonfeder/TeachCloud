@@ -23,6 +23,7 @@ const Login = () => {
   };
 
   return (
+    <div className="container">
     <form onSubmit={handleSubmit}>
       <h2>התחברות</h2>
       <input
@@ -42,6 +43,7 @@ const Login = () => {
       <button type="submit">התחבר</button>
       {error && <p style={{ color: "red" }}>{error}</p>}
     </form>
+    </div>
   );
 };
 

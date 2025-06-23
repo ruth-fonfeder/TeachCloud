@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using TeachCloud.Core.DTOs;
 using TeachCloud.Core.Entities;
@@ -39,8 +40,7 @@ namespace TeachCloud.Controllers
         [HttpPost]
         public IActionResult Create([FromBody] StudentDto studentDto)
         {
-            var student = _mapper.Map<Student>(studentDto);
-            var createdStudent = _studentService.CreateStudent(student);
+            var createdStudent = _studentService.CreateStudent(studentDto);
             var createdStudentDto = _mapper.Map<StudentDto>(createdStudent);
             return CreatedAtAction(nameof(GetById), new { id = createdStudentDto.Id }, createdStudentDto);
         }

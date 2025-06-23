@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace TeachCloud.Core.DTOs
 {
+ 
     public class StudentDto
     {
         public int Id { get; set; }
         public string FullName { get; set; } = string.Empty;
-        public List<GroupSimpleDto> StudyGroups { get; set; } = new();
+        public string Email { get; set; } = string.Empty; // ← הוספת שדה חסר
+        public List<int> StudyGroupIds { get; set; } = new();
     }
 
 }

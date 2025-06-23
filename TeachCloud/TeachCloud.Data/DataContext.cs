@@ -18,28 +18,6 @@ namespace TeachCloud.Data
         public DataContext(DbContextOptions<DataContext> options) : base(options) { }
        
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    base.OnModelCreating(modelBuilder);
-
-        //    // הכנסת נתונים התחלתיים (seeding)
-        //    modelBuilder.Entity<Admin>().HasData(new Admin
-        //    {
-        //        Id = 1,
-        //        FullName = "שרה כהן",
-        //        Email = "sara@example.com",
-        //        PasswordHash = "123456"
-        //    });
-
-        //    modelBuilder.Entity<Course>().HasData(
-        //        new Course { Id = 1, Name = "מתמטיקה" },
-        //        new Course
-        //        {
-        //            Id = 2,
-        //            Name = "היסטוריה"
-        //        }
-        //    );
-        //}
     }
 }
 
