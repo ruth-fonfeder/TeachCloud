@@ -21,8 +21,8 @@ namespace TeachCloud.Core.Entities
 
     public enum UserRole
     {
-        Admin,
-        Teacher,
-        Student
+        Admin=0,
+        Teacher=1,
+        Student=2
     }
 }
