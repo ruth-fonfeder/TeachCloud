@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using TeachCloud.Core.DTOs;
 using TeachCloud.Core.Entities;
+using TeachCloud.Core.Service;
 using TeachCloud.Data;
 
 namespace TeachCloud.API.Controllers
@@ -11,16 +12,18 @@ namespace TeachCloud.API.Controllers
     public class AuthController : ControllerBase
     {
         private readonly DataContext _context;
+        private readonly ITokenService _tokenService;
 
-        public AuthController(DataContext context)
+        public AuthController(DataContext context, ITokenService tokenService)
         {
             _context = context;
+            _tokenService = tokenService;
         }
 
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterDto dto)
         {
-            // בדיקה אם מישהו עם האימייל הזה כבר קיים באחת מהטבלאות
+            // בדיקה אם מישהו עם האימייל הזה כבר קיים
             var existingStudent = await _context.Students.FirstOrDefaultAsync(u => u.Email == dto.Email);
             var existingTeacher = existingStudent == null ? await _context.Teachers.FirstOrDefaultAsync(u => u.Email == dto.Email) : null;
             var existingAdmin = (existingStudent == null && existingTeacher == null)
@@ -31,7 +34,6 @@ namespace TeachCloud.API.Controllers
                 return Ok(new { exists = true });
             }
 
-            // יצירת יוזר חדש לפי Role
             User newUser;
             switch (dto.Role)
             {
@@ -40,7 +42,7 @@ namespace TeachCloud.API.Controllers
                     {
                         FullName = dto.FullName,
                         Email = dto.Email,
-                        PasswordHash = dto.Password, // כאן תוכל לשים בעתיד Hash
+                        PasswordHash = dto.Password
                     };
                     _context.Admins.Add((Admin)newUser);
                     break;
@@ -68,27 +70,40 @@ namespace TeachCloud.API.Controllers
             }
 
             await _context.SaveChangesAsync();
-
             return Ok(new { success = true });
         }
+
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginDto dto)
         {
+            User? user = null;
+
             var student = await _context.Students.FirstOrDefaultAsync(s => s.Email == dto.Email && s.PasswordHash == dto.Password);
-            if (student != null)
-                return Ok(new { role = "Student", fullName = student.FullName, token = "student-token" });
+            if (student != null) user = student;
 
-            var teacher = await _context.Teachers.FirstOrDefaultAsync(t => t.Email == dto.Email && t.PasswordHash == dto.Password);
-            if (teacher != null)
-                return Ok(new { role = "Teacher", fullName = teacher.FullName, token = "teacher-token" });
+            if (user == null)
+            {
+                var teacher = await _context.Teachers.FirstOrDefaultAsync(t => t.Email == dto.Email && t.PasswordHash == dto.Password);
+                if (teacher != null) user = teacher;
+            }
 
-            var admin = await _context.Admins.FirstOrDefaultAsync(a => a.Email == dto.Email && a.PasswordHash == dto.Password);
-            if (admin != null)
-                return Ok(new { role = "Admin", fullName = admin.FullName, token = "admin-token" });
+            if (user == null)
+            {
+                var admin = await _context.Admins.FirstOrDefaultAsync(a => a.Email == dto.Email && a.PasswordHash == dto.Password);
+                if (admin != null) user = admin;
+            }
 
-            return Unauthorized("Invalid email or password");
+            if (user == null)
+                return Unauthorized("Invalid email or password");
+
+            var token = _tokenService.CreateToken(user);
+
+            return Ok(new
+            {
+                role = user.Role.ToString(),
+                fullName = user.FullName,
+                token = token
+            });
         }
-
-
     }
 }

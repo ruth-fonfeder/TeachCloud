@@ -5,7 +5,17 @@ const Home = () => {
   return (
     <div className="container">
     <div>
-      <h1>🤩🎉 ברוכים הבאים</h1>
+  
+<h1 style={{
+  background: 'linear-gradient(to right, #10B981, #2563EB)',
+  WebkitBackgroundClip: 'text',
+  WebkitTextFillColor: 'transparent',
+  fontSize: '2rem',
+  fontWeight: 'bold'
+}}>
+  TeachCloud
+</h1>
+      <h2>🤩🎉 ברוכים הבאים</h2>
       {/* <Link to="/register">הרשמה</Link>
       <Link to="/login">התחברות</Link> */}
       <Link to="/register">הרשמה</Link>
