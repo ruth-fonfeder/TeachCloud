@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TeachCloud.Data")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0022d88cf8ac5e78a526065420feba8eb5b500c7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b5ae20289e0ca22bbdea43821c8c3be7018a8f87")]
 [assembly: System.Reflection.AssemblyProductAttribute("TeachCloud.Data")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TeachCloud.Data")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

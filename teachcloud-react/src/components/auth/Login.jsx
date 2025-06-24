@@ -132,6 +132,8 @@ const Login = () => {
       localStorage.setItem("token", res.token || "");
       localStorage.setItem("role", res.role);
       localStorage.setItem("fullName", res.fullName);
+      console.log("Login response:", res);
+
 
       // ניווט לפי תפקיד
       if (res.role === "Student") navigate("/student-area");
@@ -139,6 +141,8 @@ const Login = () => {
       else if (res.role === "Admin") navigate("/admin-area");
       else navigate("/"); // fallback
     } catch (err) {
+      // console.log("Login response:", res);
+
       setError("אימייל או סיסמה שגויים");
     }
   };
