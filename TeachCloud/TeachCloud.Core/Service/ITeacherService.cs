@@ -11,8 +11,12 @@ namespace TeachCloud.Core.Service
     {
         IEnumerable<Teacher> GetAllTeachers();
         Teacher? GetTeacherById(int id);
+        Teacher? GetTeacherByEmail(string email);       // <-- הוסף
+        List<Course> GetCoursesByTeacherId(int teacherId);  // <-- הוסף
         Teacher CreateTeacher(Teacher teacher);
         bool UpdateTeacher(int id, Teacher teacher);
         bool DeleteTeacher(int id);
     }
+
 }
+

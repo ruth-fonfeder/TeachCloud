@@ -7,10 +7,12 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState(""); // ברירת מחדל ריקה
-  const [error, setError] = useState(null);
+  const [error, setError] = useState <string | null>(null);
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
+  
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError(null);
     try {

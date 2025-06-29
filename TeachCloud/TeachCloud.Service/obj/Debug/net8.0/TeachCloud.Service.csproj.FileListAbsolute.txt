@@ -14,3 +14,5 @@ C:\Users\user1\Desktop\רות\כיתה ו\לימודים\Dotnet\TeachCloudProjec
 C:\Users\user1\Desktop\רות\כיתה ו\לימודים\Dotnet\TeachCloudProject\TeachCloud\TeachCloud.Service\obj\Debug\net8.0\refint\TeachCloud.Service.dll
 C:\Users\user1\Desktop\רות\כיתה ו\לימודים\Dotnet\TeachCloudProject\TeachCloud\TeachCloud.Service\obj\Debug\net8.0\TeachCloud.Service.pdb
 C:\Users\user1\Desktop\רות\כיתה ו\לימודים\Dotnet\TeachCloudProject\TeachCloud\TeachCloud.Service\obj\Debug\net8.0\ref\TeachCloud.Service.dll
+C:\Users\user1\Desktop\רות\כיתה ו\לימודים\Dotnet\TeachCloudProject\TeachCloud\TeachCloud.Service\bin\Debug\net8.0\TeachCloud.Data.dll
+C:\Users\user1\Desktop\רות\כיתה ו\לימודים\Dotnet\TeachCloudProject\TeachCloud\TeachCloud.Service\bin\Debug\net8.0\TeachCloud.Data.pdb

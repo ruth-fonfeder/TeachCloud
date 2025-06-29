@@ -1652,7 +1652,8 @@
           "BCrypt.Net-Next": "4.0.3",
           "Microsoft.Extensions.Configuration.Abstractions": "8.0.0",
           "System.IdentityModel.Tokens.Jwt": "8.12.1",
-          "TeachCloud.Core": "1.0.0"
+          "TeachCloud.Core": "1.0.0",
+          "TeachCloud.Data": "1.0.0"
         },
         "compile": {
           "bin/placeholder/TeachCloud.Service.dll": {}

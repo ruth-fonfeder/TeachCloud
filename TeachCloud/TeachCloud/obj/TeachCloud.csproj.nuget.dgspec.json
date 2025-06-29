@@ -191,6 +191,9 @@
             "projectReferences": {
               "C:\\Users\\user1\\Desktop\\רות\\כיתה ו\\לימודים\\Dotnet\\TeachCloudProject\\TeachCloud\\TeachCloud.Core\\TeachCloud.Core.csproj": {
                 "projectPath": "C:\\Users\\user1\\Desktop\\רות\\כיתה ו\\לימודים\\Dotnet\\TeachCloudProject\\TeachCloud\\TeachCloud.Core\\TeachCloud.Core.csproj"
+              },
+              "C:\\Users\\user1\\Desktop\\רות\\כיתה ו\\לימודים\\Dotnet\\TeachCloudProject\\TeachCloud\\TeachCloud.Data\\TeachCloud.Data.csproj": {
+                "projectPath": "C:\\Users\\user1\\Desktop\\רות\\כיתה ו\\לימודים\\Dotnet\\TeachCloudProject\\TeachCloud\\TeachCloud.Data\\TeachCloud.Data.csproj"
               }
             }
           }

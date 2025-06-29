@@ -4,6 +4,7 @@ using TeachCloud.Core.DTOs;
 using TeachCloud.Core.Entities;
 using TeachCloud.Core.Service;
 using TeachCloud.Data;
+using Microsoft.AspNetCore.Identity; // נוספה
 
 namespace TeachCloud.API.Controllers
 {
@@ -13,17 +14,18 @@ namespace TeachCloud.API.Controllers
     {
         private readonly DataContext _context;
         private readonly ITokenService _tokenService;
+        private readonly PasswordHasher<User> _hasher;
 
         public AuthController(DataContext context, ITokenService tokenService)
         {
             _context = context;
             _tokenService = tokenService;
+            _hasher = new PasswordHasher<User>();
         }
 
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] RegisterDto dto)
         {
-            // בדיקה אם מישהו עם האימייל הזה כבר קיים
             var existingStudent = await _context.Students.FirstOrDefaultAsync(u => u.Email == dto.Email);
             var existingTeacher = existingStudent == null ? await _context.Teachers.FirstOrDefaultAsync(u => u.Email == dto.Email) : null;
             var existingAdmin = (existingStudent == null && existingTeacher == null)
@@ -42,8 +44,8 @@ namespace TeachCloud.API.Controllers
                     {
                         FullName = dto.FullName,
                         Email = dto.Email,
-                        PasswordHash = dto.Password
                     };
+                    newUser.PasswordHash = _hasher.HashPassword(newUser, dto.Password);
                     _context.Admins.Add((Admin)newUser);
                     break;
 
@@ -52,8 +54,8 @@ namespace TeachCloud.API.Controllers
                     {
                         FullName = dto.FullName,
                         Email = dto.Email,
-                        PasswordHash = dto.Password
                     };
+                    newUser.PasswordHash = _hasher.HashPassword(newUser, dto.Password);
                     _context.Teachers.Add((Teacher)newUser);
                     break;
 
@@ -63,8 +65,8 @@ namespace TeachCloud.API.Controllers
                     {
                         FullName = dto.FullName,
                         Email = dto.Email,
-                        PasswordHash = dto.Password
                     };
+                    newUser.PasswordHash = _hasher.HashPassword(newUser, dto.Password);
                     _context.Students.Add((Student)newUser);
                     break;
             }
@@ -76,34 +78,66 @@ namespace TeachCloud.API.Controllers
         [HttpPost("login")]
         public async Task<IActionResult> Login([FromBody] LoginDto dto)
         {
-            User? user = null;
-
-            var student = await _context.Students.FirstOrDefaultAsync(s => s.Email == dto.Email && s.PasswordHash == dto.Password);
-            if (student != null) user = student;
-
-            if (user == null)
+            try
             {
-                var teacher = await _context.Teachers.FirstOrDefaultAsync(t => t.Email == dto.Email && t.PasswordHash == dto.Password);
-                if (teacher != null) user = teacher;
+                Console.WriteLine("👉 התחלת login");
+                Console.WriteLine("📧 אימייל שהגיע מהלקוח: " + dto.Email);
+
+                User? user = null;
+
+                var student = await _context.Students.FirstOrDefaultAsync(s => s.Email == dto.Email);
+                if (student != null) user = student;
+
+                if (user == null)
+                {
+                    var teacher = await _context.Teachers.FirstOrDefaultAsync(t => t.Email == dto.Email);
+                    if (teacher != null) user = teacher;
+                }
+
+                if (user == null)
+                {
+                    var admin = await _context.Admins.FirstOrDefaultAsync(a => a.Email == dto.Email);
+                    if (admin != null) user = admin;
+                }
+
+                if (user == null)
+                {
+                    Console.WriteLine("❌ משתמש לא נמצא");
+                    return Unauthorized("Invalid email or password");
+                }
+
+                // בדיקת סיסמה
+                Console.WriteLine("🔑 בודקת סיסמה");
+                var hasher = new PasswordHasher<User>();
+                var result = hasher.VerifyHashedPassword(user, user.PasswordHash, dto.Password);
+                if (result == PasswordVerificationResult.Failed)
+                {
+                    Console.WriteLine("❌ סיסמה לא נכונה");
+                    return Unauthorized("Invalid email or password");
+                }
+
+                Console.WriteLine("✅ התחברות הצליחה, יוצרת טוקן");
+
+                var token = _tokenService.CreateToken(user);
+
+                return Ok(new
+                {
+                    role = user.Role.ToString(),
+                    fullName = user.FullName,
+                    token = token
+                });
             }
-
-            if (user == null)
+            catch (Exception ex)
             {
-                var admin = await _context.Admins.FirstOrDefaultAsync(a => a.Email == dto.Email && a.PasswordHash == dto.Password);
-                if (admin != null) user = admin;
+                Console.WriteLine("🚨 שגיאה בהתחברות:");
+                Console.WriteLine(ex.Message);
+                Console.WriteLine(ex.StackTrace);
+                return StatusCode(500, "שגיאה פנימית בשרת");
             }
-
-            if (user == null)
-                return Unauthorized("Invalid email or password");
-
-            var token = _tokenService.CreateToken(user);
-
-            return Ok(new
-            {
-                role = user.Role.ToString(),
-                fullName = user.FullName,
-                token = token
-            });
         }
+
+
+
+        
     }
 }
