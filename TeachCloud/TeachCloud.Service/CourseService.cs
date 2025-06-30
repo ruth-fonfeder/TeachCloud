@@ -8,11 +8,14 @@ namespace TeachCloud.Service
     public class CourseService : ICourseService
     {
         private readonly ICourseRepository _courseRepository;
+        private readonly IGroupRepository _groupRepository;
 
-        public CourseService(ICourseRepository courseRepository)
+        public CourseService(ICourseRepository courseRepository, IGroupRepository groupRepository)
         {
             _courseRepository = courseRepository;
+            _groupRepository = groupRepository;
         }
+
 
         public IEnumerable<Course> GetAllCourses() => _courseRepository.GetAll();
 

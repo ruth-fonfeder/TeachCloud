@@ -6,7 +6,6 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using Microsoft.Extensions.Configuration;
 
-
 namespace TeachCloud.Service
 {
     public class TokenService : ITokenService
@@ -22,9 +21,10 @@ namespace TeachCloud.Service
         {
             var claims = new[]
             {
-            new Claim(ClaimTypes.Name, user.FullName),
-            new Claim(ClaimTypes.Role, user.Role.ToString())
-        };
+                new Claim(ClaimTypes.Name, user.Email),               // ✅ שם המשתמש יהיה כתובת המייל
+                //new Claim("FullName", user.FullName),                 // ✅ שומר גם את השם המלא (אופציונלי)
+                new Claim(ClaimTypes.Role, user.Role.ToString())      // ✅ שומר את התפקיד (Teacher/Admin וכו')
+            };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["JwtSettings:SecretKey"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);

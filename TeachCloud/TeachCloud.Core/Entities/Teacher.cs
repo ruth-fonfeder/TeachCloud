@@ -9,6 +9,9 @@ namespace TeachCloud.Core.Entities
     public class Teacher : User
     {
         public Teacher() : base(UserRole.Teacher) { }
+        public int? AdminId { get; set; }  // 👈 זה מאפשר ערך null
+
+
         public List<Course> Courses { get; set; } = new();
     }
 }

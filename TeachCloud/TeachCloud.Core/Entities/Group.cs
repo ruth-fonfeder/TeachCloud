@@ -16,7 +16,9 @@ namespace TeachCloud.Core.Entities
         public Course Course { get; set; } = null!;
 
         public List<Student> Students { get; set; } = new();
+        public int? AdminId { get; set; }  // 👈 זה מאפשר ערך null
+
     }
 
-    
+
 }

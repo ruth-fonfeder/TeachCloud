@@ -1,3 +1,5 @@
+
+
 import React, { useEffect, useState } from "react";
 import { getTeacherCourses } from "../../api/courseApi";
 import CourseCard from "../../components/CourseCard";
@@ -33,10 +35,14 @@ function CreateCourseForm({ onCourseCreated }: { onCourseCreated: () => void }) 
       studyGroups: groups.filter(g => g.name.trim() !== ""),
     };
 
+    console.log("🟡 שליחת בקשה ליצירת קורס");
+    console.log("🔐 Token:", token);
+    console.log("📦 Payload:", payload);
+
     setIsSubmitting(true);
 
     try {
-      const res = await fetch("/api/Course/my", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/Course/my`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -44,6 +50,12 @@ function CreateCourseForm({ onCourseCreated }: { onCourseCreated: () => void }) 
         },
         body: JSON.stringify(payload),
       });
+
+      console.log("🟢 תגובת fetch:");
+      console.log("📄 Status:", res.status);
+
+      const responseText = await res.text();
+      console.log("📨 Response Text:", responseText);
 
       if (!res.ok) throw new Error("שגיאה ביצירת הקורס");
 
@@ -53,7 +65,7 @@ function CreateCourseForm({ onCourseCreated }: { onCourseCreated: () => void }) 
       onCourseCreated(); // טען מחדש את רשימת הקורסים
     } catch (error) {
       alert("אירעה שגיאה");
-      console.error(error);
+      console.error("❌ שגיאה:", error);
     } finally {
       setIsSubmitting(false);
     }
@@ -130,11 +142,14 @@ const TeacherCoursesPage = () => {
 
   const fetchCourses = async () => {
     if (!token) return;
+
+    console.log("🔄 טעינת קורסים של מורה מחובר...");
     try {
       const res = await getTeacherCourses(token);
+      console.log("✅ קורסים שהתקבלו:", res);
       setCourses(res);
     } catch (error) {
-      console.error("שגיאה בטעינת הקורסים", error);
+      console.error("❌ שגיאה בטעינת הקורסים:", error);
     }
   };
 
@@ -143,25 +158,25 @@ const TeacherCoursesPage = () => {
   }, [token]);
 
   return (
-    <div className="container">
-      <div className="p-4">
-        <h2 className="text-xl font-bold mb-4 text-center">הקורסים שלי</h2>
+    <div>
+      <h2 className="text-xl font-bold mb-4 text-center">הקורסים שלי</h2>
+      <div className="container">
+        <div className="p-4">
+          <CreateCourseForm onCourseCreated={fetchCourses} />
 
-        <CreateCourseForm onCourseCreated={fetchCourses} />
-
-        {courses.length === 0 ? (
-          <p className="text-center text-gray-500">לא נמצאו קורסים</p>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {courses.map((course) => (
-              <CourseCard key={course.id} course={course} />
-            ))}
-          </div>
-        )}
+          {courses.length === 0 ? (
+            <p className="text-center text-gray-500">לא נמצאו קורסים</p>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {courses.map((course) => (
+                <CourseCard key={course.id} course={course} />
+              ))}
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
 };
 
 export default TeacherCoursesPage;
-
