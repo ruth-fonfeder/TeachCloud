@@ -13,6 +13,7 @@ namespace TeachCloud.Core.Service
         Teacher? GetTeacherById(int id);
         Teacher? GetTeacherByEmail(string email);       // <-- הוסף
         List<Course> GetCoursesByTeacherId(int teacherId);  // <-- הוסף
+        List<Group> GetGroupsByTeacherId(int teacherId);
         Teacher CreateTeacher(Teacher teacher);
         bool UpdateTeacher(int id, Teacher teacher);
         bool DeleteTeacher(int id);

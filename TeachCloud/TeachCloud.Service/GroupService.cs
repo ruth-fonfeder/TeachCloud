@@ -18,12 +18,22 @@ namespace TeachCloud.Service
 
         public Group? GetGroupById(int id) => _groupRepository.GetById(id);
 
+        //public Group CreateGroup(Group group)
+        //{
+        //    _groupRepository.Add(group);
+        //    _groupRepository.Save();
+        //    return group;
+        //}
+
         public Group CreateGroup(Group group)
         {
             _groupRepository.Add(group);
             _groupRepository.Save();
-            return group;
+
+            // 🧠 טוען מחדש את הקבוצה עם הקשר לקורס כדי שה־DTO יהיה עם courseName
+            return _groupRepository.GetById(group.Id)!;
         }
+
 
         public bool UpdateGroup(int id, Group group)
         {

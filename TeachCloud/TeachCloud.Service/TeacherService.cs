@@ -60,5 +60,19 @@ namespace TeachCloud.Service
             _teacherRepository.Save();
             return true;
         }
+        public List<Group> GetGroupsByTeacherId(int teacherId)
+        {
+            var courseIds = _context.Courses
+                .Where(c => c.TeacherId == teacherId)
+                .Select(c => c.Id)
+                .ToList();
+
+            var groups = _context.Groups
+                .Where(g => courseIds.Contains(g.CourseId))
+                .ToList();
+
+            return groups;
+        }
+
     }
 }

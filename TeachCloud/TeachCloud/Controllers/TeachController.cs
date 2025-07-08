@@ -39,6 +39,7 @@ namespace TeachCloud.Controllers
             var teacherDto = _mapper.Map<TeacherDto>(teacher);
             return Ok(teacherDto);
         }
+      
 
         [HttpPost]
         public IActionResult Create(Teacher teacher)
@@ -85,6 +86,24 @@ namespace TeachCloud.Controllers
             var courseDtos = _mapper.Map<List<CourseDto>>(courses);
 
             return Ok(courseDtos);
+        }
+        [HttpGet("my/groups")]
+        [Authorize(Roles = "Teacher")]
+        public IActionResult GetMyGroups()
+        {
+            var email = User?.Identity?.Name;
+
+            if (string.IsNullOrEmpty(email))
+                return Unauthorized();
+
+            var teacher = _teacherService.GetTeacherByEmail(email);
+            if (teacher == null)
+                return NotFound("Teacher not found");
+
+            var groups = _teacherService.GetGroupsByTeacherId(teacher.Id);
+            var groupDtos = _mapper.Map<List<GroupSimpleDto>>(groups);
+
+            return Ok(groupDtos);
         }
     }
 }

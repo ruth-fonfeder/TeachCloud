@@ -14,9 +14,15 @@ public class DtoMappingProfile : Profile
         CreateMap<CourseDto, Course>();
         CreateMap<Course, TeacherDto.CourseSimpleDto>();
 
+        //CreateMap<Group, GroupDto>()
+        //    .ForMember(dest => dest.CourseName, opt => opt.MapFrom(src => src.Course.Name));
+        //CreateMap<GroupDto, Group>();
+
+        CreateMap<GroupDto, Group>()
+    .ForMember(dest => dest.Course, opt => opt.Ignore());
+
         CreateMap<Group, GroupDto>()
             .ForMember(dest => dest.CourseName, opt => opt.MapFrom(src => src.Course.Name));
-        CreateMap<GroupDto, Group>();
 
         // המיפוי החשוב שכנראה חסר לך
         CreateMap<GroupSimpleDto, Group>();

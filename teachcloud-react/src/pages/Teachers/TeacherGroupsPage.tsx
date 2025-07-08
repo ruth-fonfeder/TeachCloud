@@ -1,0 +1,215 @@
+// import React, { useEffect, useState } from "react";
+// import { Group } from "../../types/groupTypes";
+// import { getTeacherGroups, createGroup, deleteGroup } from "../../api/groupApi";
+// import GroupCard from "../../components/GroupCard";
+// import { useAuth } from "../../hooks/useAuth";
+
+// const TeacherGroupsPage = () => {
+//   const { token } = useAuth();
+//   const [groups, setGroups] = useState<Group[]>([]);
+//   const [newGroupName, setNewGroupName] = useState("");
+
+//   useEffect(() => {
+//     if (!token) return;
+//     loadGroups();
+//   }, [token]);
+
+//   const loadGroups = async () => {
+//     try {
+//       if (!token) return;
+//       const data = await getTeacherGroups(token);
+//       setGroups(data);
+//     } catch (error) {
+//       console.error("שגיאה בטעינת קבוצות", error);
+//     }
+//   };
+
+//   const handleCreate = async () => {
+//     if (!newGroupName.trim() || !token) return;
+
+//     try {
+//       const newGroup = await createGroup(token, {
+//         name: newGroupName,
+//         courseId: 1, // ⚠ זמני עד שתהיה בחירה דינמית
+//       });
+//       setGroups([...groups, newGroup]);
+//       setNewGroupName("");
+//     } catch (error) {
+//       console.error("שגיאה ביצירת קבוצה", error);
+//     }
+//   };
+
+//   const handleDelete = async (id: number) => {
+//     if (!window.confirm("האם למחוק את הקבוצה?") || !token) return;
+
+//     try {
+//       await deleteGroup(token, id);
+//       setGroups(groups.filter((g) => g.id !== id));
+//     } catch (error) {
+//       console.error("שגיאה במחיקת קבוצה", error);
+//     }
+//   };
+
+//   return (
+//     <div className="">
+//       <h1 className="text-xl font-bold text-right">😎 קבוצות הלימוד שלי</h1>
+//       <div className="container">
+//       <div className="flex gap-2 items-center">
+//         <input
+//           type="text"
+//           placeholder="שם קבוצה חדשה"
+//           className="border p-2 rounded flex-1"
+//           value={newGroupName}
+//           onChange={(e) => setNewGroupName(e.target.value)}
+//         />
+//         <button
+//           onClick={handleCreate}
+//           className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+//         >
+//           הוספה
+//         </button>
+//       </div>
+
+//       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+//         {groups.map((group) => (
+//           <GroupCard key={group.id} group={group} onDelete={handleDelete} />
+//         ))}
+//       </div>
+//      </div>
+//     </div>
+//   );
+// };
+
+// export default TeacherGroupsPage;
+
+
+
+import React, { useEffect, useState } from "react";
+import { Group } from "../../types/groupTypes";
+import { getTeacherGroups, createGroup, deleteGroup } from "../../api/groupApi";
+import GroupCard from "../../components/GroupCard";
+import { useAuth } from "../../hooks/useAuth";
+
+const TeacherGroupsPage = () => {
+  const { token } = useAuth();
+  const [groups, setGroups] = useState<Group[]>([]);
+  const [newGroupName, setNewGroupName] = useState("");
+  const [showCreateForm, setShowCreateForm] = useState(false); // מצב פתיחת הטופס
+
+  useEffect(() => {
+    if (!token) return;
+    loadGroups();
+  }, [token]);
+
+  const loadGroups = async () => {
+    try {
+      if (!token) return;
+      const data = await getTeacherGroups(token);
+      setGroups(data);
+    } catch (error) {
+      console.error("שגיאה בטעינת קבוצות", error);
+    }
+  };
+
+  // const handleCreate = async () => {
+  //   if (!newGroupName.trim() || !token) return;
+
+  //   try {
+  //     const newGroup = await createGroup(token, {
+  //       name: newGroupName,
+  //       courseId: 1, // ⚠ זמני עד שתהיה בחירה דינמית
+  //     });
+  //     setGroups([...groups, newGroup]);
+  //     setNewGroupName("");
+  //     setShowCreateForm(false); // סוגר את הטופס אחרי יצירה מוצלחת
+  //   } catch (error) {
+  //     console.error("שגיאה ביצירת קבוצה", error);
+  //   }
+  // };
+
+  const handleCreate = async () => {
+    if (!newGroupName.trim() || !token) return;
+  
+    const payload = {
+      name: newGroupName,
+      courseId: 1, // ⚠️ שימי לב שה־ID הזה חייב להיות קיים ב־DB!
+    };
+  
+    console.log("📤 שולחת קבוצה חדשה לשרת:", payload);
+  
+    try {
+      const newGroup = await createGroup(token, payload);
+      console.log("✅ קיבלתי קבוצה חדשה מהשרת:", newGroup);
+  
+      setGroups([...groups, newGroup]);
+      setNewGroupName("");
+      setShowCreateForm(false); // סוגר את הטופס אחרי יצירה מוצלחת
+    } catch (error) {
+      console.error("❌ שגיאה בשליחת קבוצה לשרת", error);
+    }
+  };
+  
+
+  const handleDelete = async (id: number) => {
+    if (!window.confirm("האם למחוק את הקבוצה?") || !token) return;
+
+    try {
+      await deleteGroup(token, id);
+      setGroups(groups.filter((g) => g.id !== id));
+    } catch (error) {
+      console.error("שגיאה במחיקת קבוצה", error);
+    }
+  };
+
+  return (
+    <div>
+      <h1 >😎 קבוצות הלימוד שלי</h1>
+
+      <button
+        onClick={() => setShowCreateForm(!showCreateForm)}
+        // className="mb-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+        style={{
+          position: "fixed",
+          top: "20px",
+          right: "20px",
+          backgroundColor: "#fe5ca8",
+          color: "white",
+          padding: "10px 20px",
+          borderRadius: "8px",
+          zIndex: 9999,
+          display: "inline-block",
+          width: "auto",
+          maxWidth: "none",
+        }}
+      >
+        {showCreateForm ? "ביטול" : "הוספת קבוצה"}
+      </button>
+
+      {showCreateForm && (
+        <div className="container">
+          <input 
+            type="text"
+            placeholder="שם קבוצה חדשה"
+            // className="container"
+            value={newGroupName}
+            onChange={(e) => setNewGroupName(e.target.value)}
+          />
+          <button
+            onClick={handleCreate}
+            className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+          >
+            יצירה
+          </button>
+        </div>
+      )}
+
+      <div>
+        {groups.map((group) => (
+          <GroupCard key={group.id} group={group} onDelete={handleDelete} />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default TeacherGroupsPage;
