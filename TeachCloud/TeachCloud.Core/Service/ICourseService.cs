@@ -9,6 +9,7 @@ namespace TeachCloud.Core.Service
 {
     public interface ICourseService
     {
+        Course? GetById(int id); // <- זה מה שחסר לך!
         IEnumerable<Course> GetAllCourses();
         Course? GetCourseById(int id);
         Course CreateCourse(Course course);

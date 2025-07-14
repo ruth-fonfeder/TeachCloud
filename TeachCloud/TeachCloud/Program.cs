@@ -49,7 +49,13 @@ builder.Services.AddScoped<IStudentRepository, StudentRepository>();
 builder.Services.AddScoped<ITeacherService, TeacherService>();
 builder.Services.AddScoped<ITeacherRepository, TeacherRepository>();
 
+builder.Services.AddScoped<IGroupCourseService, GroupCourseService>();
+builder.Services.AddScoped<IGroupCourseRepository, GroupCourseRepository>();
+
 builder.Services.AddScoped<ITokenService, TokenService>();
+builder.Services.AddScoped<ITeacherGroupRepository, TeacherGroupRepository>();
+
+builder.Services.AddScoped<ITeacherGroupService, TeacherGroupService>();
 
 // ✅ מסד נתונים
 builder.Services.AddDbContext<DataContext>(options =>

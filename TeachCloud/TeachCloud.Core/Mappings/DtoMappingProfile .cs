@@ -18,11 +18,25 @@ public class DtoMappingProfile : Profile
         //    .ForMember(dest => dest.CourseName, opt => opt.MapFrom(src => src.Course.Name));
         //CreateMap<GroupDto, Group>();
 
-        CreateMap<GroupDto, Group>()
-    .ForMember(dest => dest.Course, opt => opt.Ignore());
+        //    CreateMap<GroupDto, Group>()
+        //.ForMember(dest => dest.Course, opt => opt.Ignore());
+
+        //    CreateMap<Group, GroupDto>()
+        //        .ForMember(dest => dest.CourseName, opt => opt.MapFrom(src => src.Course.Name));
+
+
+        CreateMap<GroupDto, Group>();
+   /* .ForMember(dest => dest.Course, opt => opt.Ignore()); */// אם Course כבר לא קיים - אפשר למחוק גם את זה
 
         CreateMap<Group, GroupDto>()
-            .ForMember(dest => dest.CourseName, opt => opt.MapFrom(src => src.Course.Name));
+    .ForMember(dest => dest.Courses,
+               opt => opt.MapFrom(src => src.GroupCourses.Select(gc => gc.Course)));
+
+        CreateMap<GroupDto, Group>()
+            .ForMember(dest => dest.GroupCourses, opt => opt.Ignore());
+
+        CreateMap<CreateGroupDto, Group>();
+      
 
         // המיפוי החשוב שכנראה חסר לך
         CreateMap<GroupSimpleDto, Group>();

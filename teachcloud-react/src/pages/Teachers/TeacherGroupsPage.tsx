@@ -84,7 +84,7 @@
 
 
 
-import React, { useEffect, useState } from "react";
+import React,{ useEffect, useState } from "react";
 import { Group } from "../../types/groupTypes";
 import { getTeacherGroups, createGroup, deleteGroup } from "../../api/groupApi";
 import GroupCard from "../../components/GroupCard";
@@ -105,37 +105,27 @@ const TeacherGroupsPage = () => {
     try {
       if (!token) return;
       const data = await getTeacherGroups(token);
+      console.log("📥 קבוצות שהתקבלו מהשרת:", data);
       setGroups(data);
     } catch (error) {
       console.error("שגיאה בטעינת קבוצות", error);
     }
   };
-
-  // const handleCreate = async () => {
-  //   if (!newGroupName.trim() || !token) return;
-
-  //   try {
-  //     const newGroup = await createGroup(token, {
-  //       name: newGroupName,
-  //       courseId: 1, // ⚠ זמני עד שתהיה בחירה דינמית
-  //     });
-  //     setGroups([...groups, newGroup]);
-  //     setNewGroupName("");
-  //     setShowCreateForm(false); // סוגר את הטופס אחרי יצירה מוצלחת
-  //   } catch (error) {
-  //     console.error("שגיאה ביצירת קבוצה", error);
-  //   }
-  // };
+  
 
   const handleCreate = async () => {
     if (!newGroupName.trim() || !token) return;
   
     const payload = {
       name: newGroupName,
-      courseId: 1, // ⚠️ שימי לב שה־ID הזה חייב להיות קיים ב־DB!
+      // courseId: 1, // ⚠️ שימי לב שה־ID הזה חייב להיות קיים ב־DB!
     };
-  
-    console.log("📤 שולחת קבוצה חדשה לשרת:", payload);
+    console.log("📤 שולחת קבוצה חדשה לשרת:", JSON.stringify(payload, null, 2));
+    console.log("🔑 token לפני השליחה:", token);
+
+
+
+    
   
     try {
       const newGroup = await createGroup(token, payload);
@@ -145,6 +135,7 @@ const TeacherGroupsPage = () => {
       setNewGroupName("");
       setShowCreateForm(false); // סוגר את הטופס אחרי יצירה מוצלחת
     } catch (error) {
+
       console.error("❌ שגיאה בשליחת קבוצה לשרת", error);
     }
   };
@@ -166,8 +157,13 @@ const TeacherGroupsPage = () => {
       <h1 >😎 קבוצות הלימוד שלי</h1>
 
       <button
-        onClick={() => setShowCreateForm(!showCreateForm)}
-        // className="mb-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+        onClick={() => {
+          setShowCreateForm((prev) => {
+        const next = !prev;
+        if (!next) setNewGroupName(""); // מנקה את הקלט כשסוגרים
+        return next;
+          });
+        }}
         style={{
           position: "fixed",
           top: "20px",
@@ -182,23 +178,22 @@ const TeacherGroupsPage = () => {
           maxWidth: "none",
         }}
       >
-        {showCreateForm ? "ביטול" : "הוספת קבוצה"}
+        {showCreateForm ? "✖️" : "➕ הוספת קבוצה"}
       </button>
 
       {showCreateForm && (
         <div className="container">
-          <input 
-            type="text"
-            placeholder="שם קבוצה חדשה"
-            // className="container"
-            value={newGroupName}
-            onChange={(e) => setNewGroupName(e.target.value)}
+          <input
+        type="text"
+        placeholder="שם קבוצה חדשה"
+        value={newGroupName}
+        onChange={(e) => setNewGroupName(e.target.value)}
           />
           <button
-            onClick={handleCreate}
-            className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+        onClick={handleCreate}
+        className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
           >
-            יצירה
+        יצירה
           </button>
         </div>
       )}
@@ -213,3 +208,4 @@ const TeacherGroupsPage = () => {
 };
 
 export default TeacherGroupsPage;
+ 

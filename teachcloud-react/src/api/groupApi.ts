@@ -63,7 +63,7 @@ export const getTeacherGroups = async (token: string): Promise<Group[]> => {
   return res.data;
 };
 
-export const createGroup = async (token: string, payload: { name: string; courseId: number }): Promise<Group> => {
+export const createGroup = async (token: string, payload: { name: string }): Promise<Group> => {
   const res = await axios.post(`${API_URL}/api/group`, payload, {
     headers: {
       Authorization: `Bearer ${token}`,

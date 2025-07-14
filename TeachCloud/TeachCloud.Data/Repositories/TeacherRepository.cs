@@ -16,6 +16,11 @@ namespace TeachCloud.Data.Repositories
         {
             return _context.Teachers.ToList();
         }
+        public Teacher? GetByEmail(string email)
+        {
+            return _context.Teachers.FirstOrDefault(t => t.Email == email);
+        }
+
 
         public Teacher? GetById(int id)
         {

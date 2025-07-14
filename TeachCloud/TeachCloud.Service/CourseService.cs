@@ -16,6 +16,10 @@ namespace TeachCloud.Service
             _groupRepository = groupRepository;
         }
 
+        public Course? GetById(int id)
+        {
+            return _courseRepository.GetById(id);
+        }
 
         public IEnumerable<Course> GetAllCourses() => _courseRepository.GetAll();
 

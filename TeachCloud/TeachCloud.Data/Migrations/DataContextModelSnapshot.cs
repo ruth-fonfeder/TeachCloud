@@ -126,10 +126,7 @@ namespace TeachCloud.Data.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("AdminId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CourseId")
+                    b.Property<int?>("AdminId")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -140,9 +137,22 @@ namespace TeachCloud.Data.Migrations
 
                     b.HasIndex("AdminId");
 
+                    b.ToTable("Groups");
+                });
+
+            modelBuilder.Entity("TeachCloud.Core.Entities.GroupCourse", b =>
+                {
+                    b.Property<int>("GroupId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CourseId")
+                        .HasColumnType("int");
+
+                    b.HasKey("GroupId", "CourseId");
+
                     b.HasIndex("CourseId");
 
-                    b.ToTable("Groups");
+                    b.ToTable("GroupCourses");
                 });
 
             modelBuilder.Entity("TeachCloud.Core.Entities.Institution", b =>
@@ -226,7 +236,7 @@ namespace TeachCloud.Data.Migrations
 
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("AdminId")
+                    b.Property<int?>("AdminId")
                         .HasColumnType("int");
 
                     b.Property<string>("Email")
@@ -249,6 +259,21 @@ namespace TeachCloud.Data.Migrations
                     b.HasIndex("AdminId");
 
                     b.ToTable("Teachers");
+                });
+
+            modelBuilder.Entity("TeachCloud.Core.Entities.TeacherGroup", b =>
+                {
+                    b.Property<int>("TeacherId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("GroupId")
+                        .HasColumnType("int");
+
+                    b.HasKey("TeacherId", "GroupId");
+
+                    b.HasIndex("GroupId");
+
+                    b.ToTable("TeacherGroups");
                 });
 
             modelBuilder.Entity("GroupStudent", b =>
@@ -299,17 +324,26 @@ namespace TeachCloud.Data.Migrations
                 {
                     b.HasOne("TeachCloud.Core.Entities.Admin", null)
                         .WithMany("Groups")
-                        .HasForeignKey("AdminId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("AdminId");
+                });
 
+            modelBuilder.Entity("TeachCloud.Core.Entities.GroupCourse", b =>
+                {
                     b.HasOne("TeachCloud.Core.Entities.Course", "Course")
-                        .WithMany("StudyGroups")
+                        .WithMany("GroupCourses")
                         .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("TeachCloud.Core.Entities.Group", "Group")
+                        .WithMany("GroupCourses")
+                        .HasForeignKey("GroupId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("Course");
+
+                    b.Navigation("Group");
                 });
 
             modelBuilder.Entity("TeachCloud.Core.Entities.Lesson", b =>
@@ -327,9 +361,26 @@ namespace TeachCloud.Data.Migrations
                 {
                     b.HasOne("TeachCloud.Core.Entities.Admin", null)
                         .WithMany("Teachers")
-                        .HasForeignKey("AdminId")
+                        .HasForeignKey("AdminId");
+                });
+
+            modelBuilder.Entity("TeachCloud.Core.Entities.TeacherGroup", b =>
+                {
+                    b.HasOne("TeachCloud.Core.Entities.Group", "Group")
+                        .WithMany("TeacherGroups")
+                        .HasForeignKey("GroupId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("TeachCloud.Core.Entities.Teacher", "Teacher")
+                        .WithMany("TeacherGroups")
+                        .HasForeignKey("TeacherId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Group");
+
+                    b.Navigation("Teacher");
                 });
 
             modelBuilder.Entity("TeachCloud.Core.Entities.Admin", b =>
@@ -341,7 +392,14 @@ namespace TeachCloud.Data.Migrations
 
             modelBuilder.Entity("TeachCloud.Core.Entities.Course", b =>
                 {
-                    b.Navigation("StudyGroups");
+                    b.Navigation("GroupCourses");
+                });
+
+            modelBuilder.Entity("TeachCloud.Core.Entities.Group", b =>
+                {
+                    b.Navigation("GroupCourses");
+
+                    b.Navigation("TeacherGroups");
                 });
 
             modelBuilder.Entity("TeachCloud.Core.Entities.Institution", b =>
@@ -357,6 +415,8 @@ namespace TeachCloud.Data.Migrations
             modelBuilder.Entity("TeachCloud.Core.Entities.Teacher", b =>
                 {
                     b.Navigation("Courses");
+
+                    b.Navigation("TeacherGroups");
                 });
 #pragma warning restore 612, 618
         }

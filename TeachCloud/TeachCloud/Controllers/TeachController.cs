@@ -5,6 +5,7 @@ using TeachCloud.Core.Service;
 using AutoMapper;
 using TeachCloud.Core.DTOs;
 using System.Security.Claims;
+using TeachCloud.Service;
 
 namespace TeachCloud.Controllers
 {
@@ -39,7 +40,7 @@ namespace TeachCloud.Controllers
             var teacherDto = _mapper.Map<TeacherDto>(teacher);
             return Ok(teacherDto);
         }
-      
+
 
         [HttpPost]
         public IActionResult Create(Teacher teacher)
@@ -47,6 +48,8 @@ namespace TeachCloud.Controllers
             var createdTeacher = _teacherService.CreateTeacher(teacher);
             return CreatedAtAction(nameof(GetById), new { id = createdTeacher.Id }, createdTeacher);
         }
+
+
 
         [HttpPut("{id}")]
         public IActionResult Update(int id, Teacher teacher)
@@ -104,6 +107,28 @@ namespace TeachCloud.Controllers
             var groupDtos = _mapper.Map<List<GroupSimpleDto>>(groups);
 
             return Ok(groupDtos);
+        }
+
+       
+
+        [HttpPost("my/groups")]
+        [Authorize(Roles = "Teacher")]
+        public IActionResult AddOrJoinGroup([FromBody] string groupName)
+        {
+            var email = User?.Identity?.Name;
+            if (string.IsNullOrEmpty(email))
+                return Unauthorized();
+
+            try
+            {
+                var group = _teacherService.AddOrJoinGroup(groupName, email);
+                var dto = _mapper.Map<GroupSimpleDto>(group);
+                return Ok(dto);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }

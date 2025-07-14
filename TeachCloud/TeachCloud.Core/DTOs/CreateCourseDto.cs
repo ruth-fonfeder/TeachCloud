@@ -9,6 +9,6 @@ namespace TeachCloud.Core.DTOs
     public class CreateCourseDto
     {
         public string Name { get; set; } = string.Empty;
-        public List<GroupSimpleDto> StudyGroups { get; set; } = new();
+        public List<GroupSimpleDto> Groups { get; set; } = new();
     }
 }
