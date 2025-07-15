@@ -11,5 +11,7 @@ namespace TeachCloud.Core.Repositories
     {
         void Add(GroupCourse groupCourse);
         void Save();
+        void DeleteRange(IEnumerable<GroupCourse> groupCourses);
+
     }
 }

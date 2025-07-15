@@ -25,7 +25,7 @@ const CourseCard = ({ course, onDelete }: Props) => {
         {course.description ? (
           <p className="text-sm text-gray-600 text-right">{course.description}</p>
         ) : (
-          <p className="text-sm text-gray-400 italic text-right">אין תיאור</p>
+          <p className="text-sm text-gray-400 italic text-right"> </p>
           
         )}
           <button

@@ -13,16 +13,7 @@ public class DtoMappingProfile : Profile
             .ForMember(dest => dest.TeacherName, opt => opt.MapFrom(src => src.Teacher.FullName));
         CreateMap<CourseDto, Course>();
         CreateMap<Course, TeacherDto.CourseSimpleDto>();
-
-        //CreateMap<Group, GroupDto>()
-        //    .ForMember(dest => dest.CourseName, opt => opt.MapFrom(src => src.Course.Name));
-        //CreateMap<GroupDto, Group>();
-
-        //    CreateMap<GroupDto, Group>()
-        //.ForMember(dest => dest.Course, opt => opt.Ignore());
-
-        //    CreateMap<Group, GroupDto>()
-        //        .ForMember(dest => dest.CourseName, opt => opt.MapFrom(src => src.Course.Name));
+        CreateMap<Course, CourseSimpleDto>();
 
 
         CreateMap<GroupDto, Group>();

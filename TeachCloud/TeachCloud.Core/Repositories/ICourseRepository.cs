@@ -9,5 +9,7 @@ namespace TeachCloud.Core.Repositories
         void Add(Course course);
         void Delete(Course course);
         void Save();
+        Course? GetByIdWithRelations(int id);
+
     }
 }

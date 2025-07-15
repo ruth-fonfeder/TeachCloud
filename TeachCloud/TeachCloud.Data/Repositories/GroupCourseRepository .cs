@@ -26,5 +26,10 @@ namespace TeachCloud.Data.Repositories
         {
             _context.SaveChanges();
         }
+        public void DeleteRange(IEnumerable<GroupCourse> groupCourses)
+        {
+            _context.GroupCourses.RemoveRange(groupCourses);
+        }
+
     }
 }
