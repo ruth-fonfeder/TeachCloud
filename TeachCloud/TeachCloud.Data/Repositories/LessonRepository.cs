@@ -1,4 +1,5 @@
-﻿using TeachCloud.Core.Entities;
+﻿using Microsoft.EntityFrameworkCore;
+using TeachCloud.Core.Entities;
 using TeachCloud.Core.Repositories;
 
 namespace TeachCloud.Data.Repositories
@@ -35,6 +36,23 @@ namespace TeachCloud.Data.Repositories
         public void Save()
         {
             _context.SaveChanges();
+        }
+        //public IEnumerable<Lesson> GetLessonsByCourseId(int courseId)
+        //{
+        //    return _context.Lessons
+        //        .Where(lesson =>
+        //            lesson.StudyGroup.GroupCourses.Any(gc => gc.CourseId == courseId))
+        //        .ToList();
+        //}
+
+        public IEnumerable<Lesson> GetLessonsByCourseId(int courseId)
+        {
+            // במידה ושיעור מקושר לקורס דרך StudyGroup -> GroupCourses -> Course
+            return _context.Lessons
+                .Include(l => l.StudyGroup)
+                .ThenInclude(g => g.GroupCourses)
+                .Where(l => l.StudyGroup.GroupCourses.Any(gc => gc.CourseId == courseId))
+                .ToList();
         }
     }
 }

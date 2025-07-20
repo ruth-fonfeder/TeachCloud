@@ -14,5 +14,7 @@ namespace TeachCloud.Core.Service
         Lesson CreateLesson(Lesson lesson);
         bool UpdateLesson(int id, Lesson lesson);
         bool DeleteLesson(int id);
+        IEnumerable<Lesson> GetLessonsByCourseId(int courseId);
+
     }
 }

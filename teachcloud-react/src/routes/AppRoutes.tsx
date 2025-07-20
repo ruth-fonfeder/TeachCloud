@@ -11,6 +11,7 @@ import Login from "../components/auth/Login";
 import Register from "../components/auth/Register";
 import GroupCoursesPage from "../pages/Teachers/GroupCoursesPage";
 import TeacherGroupsPage from "../pages/Teachers/TeacherGroupsPage";
+import CourseLessonsPage from "../pages/Teachers/CourseLessonsPage";
 
 
 // קומפוננטת Route פרטית שמגנה על עמודים
@@ -70,7 +71,7 @@ const AppRoutes = () => {
   <Route path="/" element={<Home />} />
   <Route path="/login" element={<Login />} />
   <Route path="/register" element={<Register />} />
-
+  <Route path="/courses/:courseId/lessons" element={<CourseLessonsPage />} />
   {/* דפים מוגנים */}
   <Route
     path="/student-area"

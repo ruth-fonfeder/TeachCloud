@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 using TeachCloud.Core.Entities;
 using TeachCloud.Core.Repositories;
 using TeachCloud.Core.Service;
@@ -44,6 +45,10 @@ namespace TeachCloud.Service
             _lessonRepository.Delete(lesson);
             _lessonRepository.Save();
             return true;
+        }
+        public IEnumerable<Lesson> GetLessonsByCourseId(int courseId)
+        {
+            return _lessonRepository.GetLessonsByCourseId(courseId);
         }
     }
 }
