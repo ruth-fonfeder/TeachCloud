@@ -22,56 +22,14 @@ const PrivateRoute = ({ children }: { children: ReactNode }) => {
 
 const AppRoutes = () => {
   return (
-    // <Routes>
-    //   {/* דפים ציבוריים */}
-    //   <Route path="/" element={<Home />} />
-    //   <Route path="/login" element={<Login />} />
-    //   <Route path="/register" element={<Register />} />
-
-    //   {/* דפים מוגנים */}
-    //   <Route
-    //     path="/student-area"
-    //     element={
-    //       <PrivateRoute>
-    //         <StudentArea />
-    //       </PrivateRoute>
-    //     }
-    //   />
-    //   <Route
-    //     path="/admin-area"
-    //     element={
-    //       <PrivateRoute>
-    //         <AdminArea />
-    //       </PrivateRoute>
-    //     }
-    //   />
-    //   <Route
-    //     path="/teacher-area"
-    //     element={
-    //       <PrivateRoute>
-    //         <TeacherArea />
-    //       </PrivateRoute>
-    //     }
-    //   />
-    //   <Route
-    //     path="/teacher-area/courses"
-    //     element={
-    //       <PrivateRoute>
-    //         <TeacherCoursesPage />
-    //       </PrivateRoute>
-    //     }
-    //   />
-
-    //   {/* דף 404 */}
-    //   <Route path="*" element={<NotFound />} />
-    // </Routes>
-
     <Routes>
   {/* דפים ציבוריים */}
   <Route path="/" element={<Home />} />
   <Route path="/login" element={<Login />} />
   <Route path="/register" element={<Register />} />
   <Route path="/courses/:courseId/lessons" element={<CourseLessonsPage />} />
+  <Route path="/groups/:groupId/courses/:courseId/lessons" element={<CourseLessonsPage />} />
+
   {/* דפים מוגנים */}
   <Route
     path="/student-area"

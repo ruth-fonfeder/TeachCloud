@@ -6,6 +6,8 @@ using TeachCloud.Core.Service;
 using TeachCloud.Core.Repositories;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
+using Microsoft.EntityFrameworkCore;
+using TeachCloud.Data.Repositories;
 
 namespace TeachCloud.API.Controllers
 {
@@ -15,22 +17,32 @@ namespace TeachCloud.API.Controllers
     {
         private readonly ICourseService _courseService;
         private readonly ITeacherService _teacherService;
+        private readonly IGroupCourseRepository _groupCourseRepository;
         private readonly IMapper _mapper;
 
         public CourseController(
             ICourseService courseService,
             ITeacherService teacherService,
+            IGroupCourseRepository groupCourseRepository,
             IMapper mapper)
         {
+            _groupCourseRepository = groupCourseRepository;
             _courseService = courseService;
             _teacherService = teacherService;
             _mapper = mapper;
         }
 
         [HttpGet]
+        //public IActionResult GetAll()
+        //{
+        //    var courses = _courseService.GetAllCourses();
+        //    var courseDtos = _mapper.Map<List<CourseDto>>(courses);
+        //    return Ok(courseDtos);
+        //}
+        [HttpGet]
         public IActionResult GetAll()
         {
-            var courses = _courseService.GetAllCourses();
+            var courses = _courseService.GetAllCoursesWithGroups();
             var courseDtos = _mapper.Map<List<CourseDto>>(courses);
             return Ok(courseDtos);
         }
@@ -62,6 +74,16 @@ namespace TeachCloud.API.Controllers
             return Ok(dtos);
         }
 
+        [HttpGet("{courseId}/groups")]
+        public ActionResult<IEnumerable<GroupDto>> GetGroupsForCourse(int courseId)
+        {
+            var groups = _groupCourseRepository.GetGroupsByCourseId(courseId);
+
+            if (groups == null || !groups.Any())
+                return NotFound();
+
+            return Ok(groups);
+        }
         [HttpPost]
         [Authorize(Roles = "Teacher")]
         public IActionResult Create([FromBody] CreateCourseDto courseDto)

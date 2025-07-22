@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TeachCloud.Core.DTOs;
 using TeachCloud.Core.Entities;
 using TeachCloud.Core.Repositories;
 
@@ -30,6 +32,25 @@ namespace TeachCloud.Data.Repositories
         {
             _context.GroupCourses.RemoveRange(groupCourses);
         }
+        public IEnumerable<GroupCourse> GetAll()
+        {
+            return _context.GroupCourses
+                .Include(gc => gc.Group)
+                .Include(gc => gc.Course)
+                .ToList();
+        }
+        public IEnumerable<GroupDto> GetGroupsByCourseId(int courseId)
+        {
+            var groups = _context.GroupCourses
+                .Where(gc => gc.CourseId == courseId)
+                .Select(gc => new GroupDto
+                {
+                    Id = gc.Group.Id,
+                    Name = gc.Group.Name
+                })
+                .ToList();
 
+            return groups;
+        }
     }
 }

@@ -61,34 +61,32 @@ namespace TeachCloud.Service
             return true;
         }
 
-        //public bool DeleteCourse(int id)
+        public IEnumerable<object> GetGroupsByCourse(int courseId)
+        {
+            var groupCourses = _groupCourseRepository.GetAll()
+                .Where(gc => gc.CourseId == courseId && gc.Group != null)
+                .Select(gc => new
+                {
+                    gc.Group.Id,
+                    gc.Group.Name
+                })
+                .ToList();
+
+            return groupCourses;
+        }
+        //public List<Course> GetAllCoursesWithGroups()
         //{
-        //    var course = _context.Courses
+        //    return _context.Courses
         //        .Include(c => c.GroupCourses)
-        //        .FirstOrDefault(c => c.Id == id);
-
-        //    if (course == null) return false;
-
-        //    // אם יש GroupCourses – מחיקת הקשרים תחילה
-        //    if (course.GroupCourses != null && course.GroupCourses.Any())
-        //    {
-        //        _context.GroupCourses.RemoveRange(course.GroupCourses);
-        //    }
-
-        //    _context.Courses.Remove(course);
-        //    _context.SaveChanges();
-        //    return true;
+        //            .ThenInclude(gc => gc.Group)
+        //        .Include(c => c.Teacher)
+        //        .ToList();
         //}
+        public List<Course> GetAllCoursesWithGroups()
+        {
+            // 🚨 שינוי כאן: קריאה לריפוזיטורי במקום גישה ישירה ל-context
+            return _courseRepository.GetAllCoursesWithGroups();
+        }
 
-
-        //public bool DeleteCourse(int id)
-        //{
-        //    var course = _courseRepository.GetById(id);
-        //    if (course == null) return false;
-
-        //    _courseRepository.Delete(course);
-        //    _courseRepository.Save();
-        //    return true;
-        //}
     }
 }

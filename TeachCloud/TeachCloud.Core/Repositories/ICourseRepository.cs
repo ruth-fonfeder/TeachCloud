@@ -10,6 +10,6 @@ namespace TeachCloud.Core.Repositories
         void Delete(Course course);
         void Save();
         Course? GetByIdWithRelations(int id);
-
+        List<Course> GetAllCoursesWithGroups();
     }
 }

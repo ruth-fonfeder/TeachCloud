@@ -11,9 +11,12 @@ namespace TeachCloud.Core.Service
     {
         Course? GetById(int id); // <- זה מה שחסר לך!
         IEnumerable<Course> GetAllCourses();
+        List<Course> GetAllCoursesWithGroups();
         Course? GetCourseById(int id);
         Course CreateCourse(Course course);
         bool UpdateCourse(int id, Course course);
         bool DeleteCourse(int id);
+        IEnumerable<object> GetGroupsByCourse(int courseId);
+
     }
 }

@@ -43,15 +43,16 @@
 
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { Course } from "../types/course";
 
-type Course = {
-  id: number;
-  name: string;
-  description?: string;
-  teacherId: number;
-  teacherName: string | null;
-  studyGroups: any[];
-};
+// type Course = {
+//   id: number;
+//   name: string;
+//   description?: string;
+//   teacherId: number;
+//   teacherName: string | null;
+//   studyGroups: any[];
+// };
 
 type Props = {
   course: Course;
@@ -62,8 +63,31 @@ const CourseCard = ({ course, onDelete }: Props) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`/courses/${course.id}/lessons`);
+    console.log("נבחר קורס:", course);
+  
+    if (!Array.isArray(course.groups) || course.groups.length === 0) {
+      alert("אין קבוצת לימוד משויכת לקורס הזה");
+      return;
+    }
+
+    const groupId = course.groups[0]?.id;
+
+if (!groupId) {
+  alert("אין קבוצת לימוד משויכת לקורס הזה");
+  return;
+}
+
+navigate(`/groups/${groupId}/courses/${course.id}/lessons`);
+
+  
+    // const groupId = course.studyGroups[0].id;
+    // navigate(`/groups/${groupId}/courses/${course.id}/lessons`);
   };
+  
+  
+  // const handleClick = () => {
+  //   navigate(`/courses/${course.id}/lessons`);
+  // };
 
   return (
     <div

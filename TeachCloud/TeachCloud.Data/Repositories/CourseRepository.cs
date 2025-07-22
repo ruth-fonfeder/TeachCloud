@@ -52,5 +52,14 @@ namespace TeachCloud.Data.Repositories
         {
             _context.SaveChanges();
         }
+        public List<Course> GetAllCoursesWithGroups()
+        {
+            return _context.Courses
+                .Include(c => c.GroupCourses)
+                    .ThenInclude(gc => gc.Group)
+                .Include(c => c.Teacher)
+                .ToList();
+        }
+
     }
 }

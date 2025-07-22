@@ -58,6 +58,8 @@ namespace TeachCloud.Controllers
         [HttpPost]
         public IActionResult CreateLesson([FromBody] LessonCreateDto lessonDto)
         {
+            Console.WriteLine($"StudyGroupId = {lessonDto.StudyGroupId}");
+
             if (lessonDto == null || string.IsNullOrWhiteSpace(lessonDto.Title))
                 return BadRequest("Invalid lesson data.");
 
@@ -110,9 +112,5 @@ namespace TeachCloud.Controllers
         }
 
     }
-    public class LessonCreateDto
-    {
-        public string Title { get; set; }
-        public int StudyGroupId { get; set; }
-    }
+   
 }
